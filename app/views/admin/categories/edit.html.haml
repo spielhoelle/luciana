@@ -1,0 +1,24 @@
+- if action_name == "new"
+  - path = admin_categories_path
+- else
+  - path = admin_category_path(@category)
+
+= form_for(@category, url: path, :html =>{class: ""}) do |f|
+  %h3
+    - if action_name == "new"
+      New category
+    - else
+      ="Category: #{@category.title} "
+    %small= f.submit "Update", class: "ml-2 btn btn-primary float-right", disabled: false
+
+  .form-group
+    %label{:for => "title"} Title
+    = f.text_field :title, placeholder: "Title", class: "form-control"
+
+
+  .form-group.text-right
+    = f.submit "Update", class: "btn btn-primary ", disabled: false
+
+- if @category.photos
+  %h3 Photos with this category:
+  = render "admin/photos/tree", photos: @category.photos

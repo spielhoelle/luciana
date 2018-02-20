@@ -1,5 +1,7 @@
 module Admin
   class PhotosController < Admin::ApplicationController
+    autocomplete :tag, :title, full: true
+    autocomplete :category, :title, full: true
 
     def index
       @photos = Photo.order(created_at: :desc)
@@ -47,7 +49,7 @@ module Admin
     private
     
     def photo_params
-      params.require(:photo).permit(:title, :caption, :order, :link, :image)
+      params.require(:photo).permit(:title, :caption, :order, :link, :image, all_tags: [], all_categories: [])
     end
   end
 end

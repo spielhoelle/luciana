@@ -8,6 +8,12 @@
     
       = link_to admin_photos_path, class: "#{controller_name == "photos" ? "active" : ""} nav-item nav-link px-0" do
         Photos
+
+      = link_to admin_tags_path, class: "#{controller_name == "tags" ? "active" : ""} nav-item nav-link px-0" do
+        Tags
+    
+      = link_to admin_categories_path, class: "#{controller_name == "categories" ? "active" : ""} nav-item nav-link px-0" do
+        Categories
     
       = link_to admin_contacts_path, class: "#{controller_name == "contacts" ? "active" : ""} nav-item nav-link px-0" do
         Contacts

@@ -1,0 +1,22 @@
+- if action_name == "new"
+  - path = admin_tags_path
+- else
+  - path = admin_tag_path(@tag)
+
+= form_for(@tag, url: path, :html =>{class: ""}) do |f|
+  %h3
+    - if action_name == "new"
+      New tag
+    - else
+      ="Tag: #{@tag.title}"
+    %small= f.submit "Update", class: "ml-2 btn btn-primary float-right", disabled: false
+
+  .form-group
+    %label{:for => "title"} Title
+    = f.text_field :title, placeholder: "Title", class: "form-control"
+
+
+  .form-group.text-right
+    = f.submit "Update", class: "btn btn-primary ", disabled: false
+
+= render "admin/photos/tree", photos: @tag.photos

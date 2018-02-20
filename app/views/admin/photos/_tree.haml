@@ -1,0 +1,49 @@
+%table.table.table-hover.table-condensed.table-responsive
+  %thead
+    %tr
+      %th.d-none.d-sm-table-cell 
+      %th Title
+      %th.d-none.d-sm-table-cell Categories
+      %th.d-none.d-sm-table-cell Tags
+      %th{colspan: 2}
+        = "Actions"
+
+  %tbody
+    -photos.each_with_index do |photo, index|
+      %tr{id: "photo_#{photo.id}", class: ""}
+        %td.p-0.w-3
+          .fixed-ratio
+            = link_to edit_admin_photo_path(photo), class: "fixed-ratio__inner" do
+              = image_tag photo.image(:thumbnail), class: 'w-100'
+        %td
+          = link_to photo.title, edit_admin_photo_path(photo)
+        %td.d-none.d-sm-table-cell
+          - if photo.categories.present?
+            %ul.list-unstyled.flex.flex-row-wrap
+              - photo.categories.each do |category|
+                %li.mr-1
+                  %i
+                    = link_to edit_admin_category_path(category) do
+                      = category.title
+                      - if photo.categories.length > 1
+                        = ","
+        %td.d-none.d-sm-table-cell
+          - if photo.tags.present?
+            %ul.list-unstyled.flex.flex-row-wrap
+              - photo.tags.each do |tag|
+                %li.mr-1
+                  %i
+                    = link_to edit_admin_tag_path(tag) do
+                      = tag.title
+
+                      - if photo.tags.length > 1
+                        = ","
+
+        %td.text-right.text-nowrap
+          = link_to edit_admin_photo_path(photo), class: "btn btn-outline-success btn-sm" do
+            %span.glyphicon.glyphicon-ok{"aria-hidden" => "true"}
+            = fa_icon "pencil"
+
+          = link_to admin_photo_path(photo), :method=> :delete, class: "btn btn-outline-danger btn-sm", data: {confirm: "You sure to delete this photo?"} do
+            %span.glyphicon.glyphicon-remove{"aria-hidden" => "true"}
+            = fa_icon "remove"

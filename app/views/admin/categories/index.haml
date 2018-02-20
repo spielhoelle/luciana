@@ -1,0 +1,29 @@
+%h3
+  Categories
+  = link_to "New Category", new_admin_category_path, class: "btn btn-primary mb-3 float-right"
+%table.table.table-hover.table-condensed.table-responsive
+  %thead
+    %tr
+      %th Title
+      %th Photos
+      %th{colspan: 2}
+        = "Actions"
+
+  %tbody
+    -@categories.each_with_index do |category, index|
+      %tr{id: "category_#{category.id}", class: ""}
+        %td
+          = link_to category.title, edit_admin_category_path(category)
+
+        %td
+          = category.photos.count
+
+
+        %td.text-right.text-nowrap
+          = link_to edit_admin_category_path(category), class: "btn btn-outline-success btn-sm" do
+            %span.glyphicon.glyphicon-ok{"aria-hidden" => "true"}
+            = fa_icon "pencil"
+
+          = link_to admin_category_path(category), :method=> :delete, class: "btn btn-outline-danger btn-sm", data: {confirm: "You sure to delete this category?"} do
+            %span.glyphicon.glyphicon-remove{"aria-hidden" => "true"}
+            = fa_icon "remove"

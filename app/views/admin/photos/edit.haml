@@ -22,6 +22,38 @@
       .form-group
         %label{:for => "title"} Title
         = f.text_field :title, placeholder: "Title name", class: "form-control"
+      .form-group
+        .field-unit__label
+          = f.label :all_categories
+        .field-unit__field
+          %div#category_input
+
+            = f.autocomplete_field :all_categories,
+            autocomplete_category_title_admin_photos_path,
+            "data-role" => "categoriesinput",
+            placeholder: "Categories separated with comma",
+            class: "form-control",
+            'data-delimiter' => ', ',
+            :multiple => true,
+            :append_to => "#category_input",
+            'data-auto-focus' => true
+
+      .form-group
+        .field-unit__label
+          = f.label :all_tags
+        .field-unit__field
+          %div#tag_input
+
+            = f.autocomplete_field :all_tags,
+            autocomplete_tag_title_admin_photos_path,
+            "data-role" => "tagsinput",
+            placeholder: "Tags separated with comma",
+            class: "form-control",
+            'data-delimiter' => ', ',
+            :multiple => true,
+            :append_to => "#tag_input",
+            'data-auto-focus' => true
+
   .form-group
     %label{:for => "caption"} Caption
     = f.text_area :caption, placeholder: "Caption name", class: "form-control"
