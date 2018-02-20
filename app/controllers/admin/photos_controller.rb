@@ -49,7 +49,7 @@ module Admin
     private
     
     def photo_params
-      params.require(:photo).permit(:title, :caption, :order, :link, :image, all_tags: [], all_categories: [])
+      params.require(:photo).permit(:title, :caption, :order, :link, :image, :in_slider, all_tags: [], all_categories: [])
     end
   end
 end

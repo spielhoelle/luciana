@@ -17,4 +17,5 @@
 //= require bootstrap/tooltip
 //= require bootstrap/util
 //= require bootstrap/scrollspy
+//= require bootstrap/carousel
 //= require turbolinks

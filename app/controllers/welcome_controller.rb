@@ -5,6 +5,7 @@ class WelcomeController < ApplicationController
     @page_title = "Luciana Damiao"
     @contact = Contact.new
     @photos = Photo.where.not(title: "avatar").order(order: :asc)
+    @slides = Photo.where("in_slider IS NOT NULL")
   end
 
 end

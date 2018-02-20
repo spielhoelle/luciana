@@ -4501,6 +4501,8 @@ __webpack_require__(19);
 
 __webpack_require__(18);
 
+$('.carousel').carousel();
+
 function throttle(fn, threshhold, scope) {
   threshhold || (threshhold = 250);
   var last, deferTimer;

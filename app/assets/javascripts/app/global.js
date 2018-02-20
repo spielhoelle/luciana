@@ -2,6 +2,7 @@ import './flashes';
 import './gmap';
 import './navbar';
 import './grid';
+$('.carousel').carousel()
 
 
 function throttle(fn, threshhold, scope) {

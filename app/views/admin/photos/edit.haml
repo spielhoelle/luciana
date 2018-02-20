@@ -22,6 +22,8 @@
       .form-group
         %label{:for => "title"} Title
         = f.text_field :title, placeholder: "Title name", class: "form-control"
+        %label{:for => "in_slider"} Sliderposition
+        = f.number_field :in_slider, placeholder: "1-99", class: "form-control"
       .form-group
         .field-unit__label
           = f.label :all_categories
