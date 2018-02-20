@@ -2,6 +2,30 @@
 .background-cover
   background: center center/cover no-repeat
 
+.hint
+  animation-name: pulse
+  animation-duration: 2s
+  animation-iteration-count: infinite
+  animation-timing-function: ease
+  &:hover
+    transform: scale(1.3)
+    border-color: transparent $bg-primary transparent
+    animation-play-state: paused
+
+  &.top-right
+    transform-origin: top right
+    
+@keyframes pulse
+  0%,100%
+    transform: scale(1)
+
+  40%
+    transform: scale(1)
+  50%
+    transform: scale(1.3)
+  60%
+    transform: scale(1)
+
 #scroll_down
   transition: opacity .3s ease 
 .backtotop-container
@@ -83,14 +107,6 @@
     transition: opacity .3s ease
 .faded-out
   opacity: 0 !important
-.navbar-inverse .navbar-nav .nav-link
-  transition: background-color .3s ease
-  color: white
-  &:hover, &:active
-    color: white
-    background-color: $green-bright
-  &:focus
-    color: white
 .faders
   > *
     opacity: 0

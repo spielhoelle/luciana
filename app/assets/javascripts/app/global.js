@@ -1,7 +1,6 @@
 import './flashes';
 import './gmap';
 import './navbar';
-import './typed.min';
 import './grid';
 
 
@@ -35,8 +34,6 @@ $(function () {
 })
 $(document).on('turbolinks:load', function() {
 
-
-
   var articleFadeIn = function() {
     var articles = jQuery('#content').children();
     var sizes = [];
@@ -61,28 +58,6 @@ $(document).on('turbolinks:load', function() {
 
   }, 500));
 
-  $(".typed").typed({
-    showCursor: false,
-    typeSpeed: 100,
-    startDelay: 1000,
-    stringsElement: $('#typed-header'),
-    callback: function() {
-      setTimeout(function(){
-        $('.typed-blink.header').addClass('done')
-        $(".site-description").addClass('typed-blink')
-      }, 500);
-
-      $(".site-description").typed({
-        loop: true,
-        startDelay: 1000,
-        typeSpeed: 100,
-        showCursor: false,
-        stringsElement: $('#typed-subheader')
-      })
-
-    },
-
-  })
 
 
   if ($('body').hasClass('welcome')) {
