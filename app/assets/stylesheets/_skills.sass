@@ -1,0 +1,103 @@
+.hexagon
+  overflow: hidden
+  visibility: hidden
+  ul.slide &
+    transform: rotate(120deg)
+  cursor: pointer
+
+.hexagon-in1
+  overflow: hidden
+  width: 100%
+  height: 100%
+  transform: rotate(-60deg)
+
+.hexagon-in2
+  width: 100%
+  height: 100%
+  background-repeat: no-repeat
+  background-position: 50%
+  background: center center/cover no-repeat
+  visibility: visible
+  transform: rotate(-60deg)
+
+.hexagon2
+  width: 86%
+  height: 100%
+  margin: 0 auto
+
+
+
+.skill-group
+  .skill
+    position: relative
+    transition: transform .3s ease 0s
+    .skillicon 
+      img
+        padding-top: 100%
+        display: inline-block
+        width: 100%
+        height: 0
+        background: center center/cover no-repeat
+        transition: all .25s ease 0s
+        filter: grayscale(100%)
+
+    .hex-skillcontainer
+      position: relative
+      margin: 15% 0
+      width: 100%
+      &:after
+        padding-top: 50%
+        display: block
+        content: ''
+      .hex
+        height: 100%
+        width: 33%
+      .hexagon-in2
+        background: lighten($black, 10)
+      .hex
+        overflow: hidden
+        position: absolute
+        &:nth-child(1)
+          transform: translate(0, -28%)
+        &:nth-child(2)
+          transform: translate(50%, 28%)
+        &:nth-child(3)
+          transform: translate(100%, -28%)
+        &:nth-child(4)
+          transform: translate(150%, 28%)
+        &:nth-child(5)
+          transform: translate(200%, -28%)
+        &.red
+          $time: 0.1s
+          $i: 0
+          @for $i from 1 through 5
+            &:nth-child(#{$i}) .hexagon-in2
+              transition: .25s ease $time
+            $time: $time + 0.2
+
+    .skill-description
+      vertical-align: top
+      display: inline-block
+      cursor: default
+      opacity: 0.1
+      @media (max-width: $screen-sm-max)
+        opacity: 1
+      width: 100%
+      padding: 0
+      transition: .25s ease 0s
+    @media (max-width: $screen-sm-max)
+      .hex-skillcontainer .hex.red .hexagon-in2
+        background: $green-bright
+      .skillicon img
+        filter: grayscale(0)
+    @media (max-width: $screen-xs-max)
+      flex-basis: percentage(6/12)
+    @media (min-width: $screen-sm-max)
+      &:hover
+        transform: scale(1.05)
+        img
+          filter: grayscale(0)
+        .skill-description
+          opacity: 1
+        .red .hexagon-in2
+          background: $green-bright

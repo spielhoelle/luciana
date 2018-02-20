@@ -1,0 +1,36 @@
+#footer
+  .tommy
+    color: #bbb
+    a
+      color: #bbb
+    i, a, &
+      transition: .3s color ease
+    i
+      animation-name: heart
+      animation-duration: 1s
+      animation-iteration-count: infinite
+      animation-timing-function: ease
+      padding: 0 5px
+      animation-play-state: paused
+  &:hover .tommy
+    color: #aaa
+    i
+      -webkit-animation-play-state: running
+      animation-play-state: running
+      color: $green-bright
+    a
+      color: #888 !important
+
+
+@keyframes heart
+  0%,100%
+    transform: scale(1)
+
+  50%
+    transform: scale(1.3)
+.no-decoration
+  &, &:hover, &:focus
+    text-decoration: none
+.footer-svg
+  #path3817_5_
+    fill: #333

@@ -1,0 +1,31 @@
+- if action_name == "new"
+  - path = admin_photos_path
+- else
+  - path = admin_photo_path(@photo)
+
+= form_for(@photo, url: path, :html =>{class: ""}) do |f|
+  %h3
+    - if action_name == "new"
+      New Photo
+    - else
+      ="#{@photo.title} - Id ##{@photo.id}"
+    %small= f.submit "Update", class: "ml-2 btn btn-primary float-right", disabled: false
+  .row
+    .col-md-6
+      .form-group
+        - unless action_name == "new"
+          = image_tag(@photo.image, class: "img-fluid")
+        %label{:for => "image"}
+        = f.file_field :image
+
+    .col-md-6
+      .form-group
+        %label{:for => "title"} Title
+        = f.text_field :title, placeholder: "Title name", class: "form-control"
+  .form-group
+    %label{:for => "caption"} Caption
+    = f.text_area :caption, placeholder: "Caption name", class: "form-control"
+
+
+
+  = f.submit "Update", class: "btn btn-primary btn-lg float-right", disabled: false

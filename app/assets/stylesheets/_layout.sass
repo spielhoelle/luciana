@@ -1,0 +1,109 @@
+
+.background-cover
+  background: center center/cover no-repeat
+
+#scroll_down
+  transition: opacity .3s ease 
+.backtotop-container
+  cursor: pointer
+  bottom: -50px
+  position: fixed
+  left: 50%
+  margin-left: -50px
+  text-align: center
+  z-index: 1
+  width: 0
+  height: 0
+  border-style: solid
+  border-width: 0 50px 50px 50px
+  border-color: transparent transparent white transparent
+  transition: bottom .25s ease 0s !important
+  #backtotop
+    i
+      transition: .25s ease 0s
+      margin: 0px auto
+      height: auto
+      width: 50px
+      font-size: 50px
+      left: -25px
+      position: absolute
+      color: $black
+  &:hover
+    margin-bottom: 0
+    border-color: transparent transparent white transparent
+    #backtotop
+      i
+        color: $green-bright
+.welcome
+  section
+    padding-top: 100px
+    padding-bottom: 100px
+
+
+.gmap
+  position: absolute
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  z-index: -1
+  pointer-events: none
+  transition: opacity .3s ease
+  opacity: .3
+  #map_canvas
+    height: 100%
+    color: $black
+    .gmnoprint, .gm-style-cc, a[target="_blank"]
+      display: none !important
+
+.showmap
+  opacity: 1
+  pointer-events: all
+  z-index: 0
+#mapoverlay
+  transition: opacity .3s ease
+.overlay-hidden
+  opacity: 0
+  pointer-events: none
+
+
+#contact,
+#new_comment
+  input[type="text"],
+  input[type="email"],
+  textarea
+    background-color: transparent
+  .triangle
+    transform: scale3d(1,1,1)
+    border-width: 0 100px 100px 0
+
+
+#content
+  > *
+    transition: opacity .3s ease
+.faded-out
+  opacity: 0 !important
+.navbar-inverse .navbar-nav .nav-link
+  transition: background-color .3s ease
+  color: white
+  &:hover, &:active
+    color: white
+    background-color: $green-bright
+  &:focus
+    color: white
+.faders
+  > *
+    opacity: 0
+    $time: 0s
+    $i: 0
+
+    @for $i from 0 through 20
+      &:nth-child(#{$i})
+        transition: opacity .5s ease $time
+      $time: $time + 0.3
+
+  .faded-in
+    opacity: 1
+
+.avatar
+  flex: 0 1 130px

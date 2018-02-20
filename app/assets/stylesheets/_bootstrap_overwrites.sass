@@ -1,0 +1,81 @@
+body
+  background-color: $black
+  color: white
+a
+  color: $green-bright
+  &:hover, &:focus
+    color: $green-dark
+.btn,
+.form-control
+  border-radius: 0
+
+.btn-primary
+  @include btn-color($green-bright,  white , $green-bright)
+
+.btn-link
+  @include btn-color(transparent,  white , transparent)
+  &:hover
+    color: $green-bright !important
+
+.btn-outline-primary
+  @include btn-color(transparent, $green-bright , $green-bright)
+
+.btn-outline-secondary
+  @include btn-color(transparent, white , white)
+
+.bg-primary
+  background-color: $green-bright !important
+.bg-inverse
+  background-color: $bg-inverse !important
+.badge-primary 
+  background-color: $green-bright !important
+.btn-xl
+  padding: 15px 30px
+  font-size: 20px
+.word-break
+  word-break: break-all
+
+.text-primary
+  color: $green-bright !important
+a.text-white
+  &:hover
+    color: $green-bright !important
+
+.card
+  border: 0 none
+  border-radius: 0
+  background-color: transparent
+
+.card-header
+  background-color: transparent
+  border: 0 none
+.flex-grow
+  flex-grow: 1 !important
+
+.carousel-caption
+  color: black
+.position--relative
+  position: relative !important
+.position--absolute
+  position: absolute !important
+.form-control,
+.form-control-lg
+  border-radius: 0
+//.form-control-lg
+  //transition: border .3s, background .3s
+  //border: 3px solid transparent
+  //border-bottom: 3px solid white
+  //border-radius: 0
+  //&:hover, &:focus
+    //border: 3px solid white
+    //background: $black !important
+.no-border
+  border: 0 none !important
+.w-100-md
+  @media (max-width: $screen-md-min)
+    width: 100% !important
+hr
+  width: 100%
+code
+  color: $green-bright
+  background-color: $bg-inverse

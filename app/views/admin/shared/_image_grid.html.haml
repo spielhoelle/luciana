@@ -1,0 +1,9 @@
+- if @images
+  - @images.each do |image|
+    .col-md-3.col-4.mb-3{id: "image_#{image.id}"}
+      .fixed-ratio--1-to-1
+        -#= image_tag(image.url)
+        = image_tag(image.image, class: "imagepicker fixed-ratio__inner", "data-image-id" => image.id)
+        = link_to admin_post_image_path(image), :method=> :delete, class: "btn btn-danger btn-sm position-absolute top-right", remote: true, data: {confirm: "You sure to delete this image?"} do
+          = fa_icon "remove"
+

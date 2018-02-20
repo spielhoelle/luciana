@@ -1,0 +1,18 @@
+!!!
+%html
+  %head
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title= @page_title
+    = csrf_meta_tags
+    -#= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag    'admin/backend', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'admin/application', 'data-turbolinks-track': 'reload'
+  %body
+    #flashes
+      = render "shared/flash", flashes: flash
+    .d-md-flex.flex-column.flex-md-row.h-100
+      = render "admin/shared/navigation"
+      .container-fluid.pt-3.w-100
+        = yield
+    = javascript_include_tag 'admin/backend.js', "data-turbolinks-eval" => false

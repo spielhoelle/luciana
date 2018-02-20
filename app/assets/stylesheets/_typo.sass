@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700')
+
+body
+  font-weight: 400
+  line-height: 1.45
+  font-size: 22px
+
+$h1: 3.5em
+$h2: 2.5em
+$h3: 1.7em
+$h4: 1.3em
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4,
+.nav-link
+  font-family: 'Cousine', sans-serif
+
+h1, .h1
+  font-weight: 800
+  margin-top: 0
+  font-size: $h1 * .5
+  @media (min-width: $screen-sm-min)
+    font-size: $h1 * .75
+  @media (min-width: $screen-md-min)
+    font-size: $h1
+
+h2, .h2
+  font-size: $h2 * .5
+  @media (min-width: $screen-sm-min)
+    font-size: $h2 * .75
+  @media (min-width: $screen-md-min)
+    font-size: $h2
+
+h3, .h3
+  font-size: $h3 * .5
+  @media (min-width: $screen-sm-min)
+    font-size: $h3 * .75
+  @media (min-width: $screen-md-min)
+    font-size: $h3
+
+h4, .h4
+  font-size: $h4 * .5
+  @media (min-width: $screen-sm-min)
+    font-size: $h4 * .75
+  @media (min-width: $screen-md-min)
+    font-size: $h4
+
+h1, h2, h3, h4, h5, h6, .main-navigation
+  // font-family: "Executive"
+  font-family: 'Cousine', sans-serif
+  font-weight: 500
+  line-height: 1
+
+h3, .h3
+  text-transform: uppercase
+  font-size: 1.2em
+  @media (min-width: $screen-md-min)
+    font-size: 1.4em !important
+  @media (min-width: $screen-md-min)
+    font-size: 1.6em !important
+
+h4, .h4
+  text-transform: uppercase
+  font-size: 1em
+  @media (min-width: $screen-md-min)
+    font-size: 1.1em !important
+  @media (min-width: $screen-md-min)
+    font-size: 1.2em !important
+
+.h0
+  font-size: $h1.1.3 !important
+  @media (min-width: $screen-md-min)
+    font-size: $h1*1.5 !important
+  @media (min-width: $screen-md-min)
+    font-size: $h1*1.8 !important
+
+
+p
+  line-height: 1.5
+  margin: 30px 0
+  a
+    text-decoration: underline
+
+
+blockquote
+  font-style: italic
+
+.mainmeu a
+  font-size: 2em
+
+.bordered
+  border: 0.2em solid transparent
+  display: inline-block
+  padding: 0 .1em
+  font-family: 'Cousine', sans-serif
+
+.color-white
+  color: white
+  border-color: white
+  stroke: #fff
+  stroke-width: 1
+  &:hover
+    color: white
+    border-color: white
+
+.color-black
+  color: $black
+  border-color: $black
+
+p
+  margin-bottom: 1.3em
+
+small, .font_small
+  font-size: 0.618em
+
+.socialbar
+  .fa-circle
+    color: white
+
+.font-size-normal
+  font-size: 1em
+  line-height: inherit
+
+.font-size-150-percent
+  font-size: 1.5em
+
+.font-size-120-percent
+  font-size: 1.2em
+
+.font-size-75-percent
+  font-size: .75em
+
+.no-decoration
+  &, &:hover, &:focus
+    text-decoration: none
+
+
+.text-weight--light
+  font-weight: 100
+
+.text-weight--normal
+  font-weight: 400
+
+.text-weight--bold
+  font-weight: 900
+
+.btn
+  border-radius: 0
+
+a
+  transition: color .1s
+  cursor: pointer
+  color: $green-bright
+  &:hover, &:focus
+    color: lighten( $green-bright, 10)
+    text-decoration: none
+

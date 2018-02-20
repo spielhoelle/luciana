@@ -1,0 +1,28 @@
+#imageModal.modal{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog.modal-lg{:role => "document"}
+    .modal-content
+      .modal-header
+        %h5#exampleModalLabel.modal-title.text-dark All Images
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          = fa_icon "times"
+
+      .modal-body 
+        #image_grid.row
+          = render "admin/shared/image_grid"
+          -#.image_remover.card.py-5.text-center
+            -#=fa_icon "remove"
+
+      .modal-footer
+        = form_tag admin_post_images_path(:post_id => @post.id), format: :js, remote: true,  class: "form-inline w-100 flex-nowrap" do
+          .form-group.flex-grow.mr-2.text-dark
+            = file_field_tag :post_image, required: true
+          .form-group
+            = submit_tag "Upload", :name => nil, class: "btn btn-primary"
+        = form_tag admin_upload_from_url_path(:post_id => @post.id), remote: true,  class: "form-inline w-100" do
+          .form-group.flex-grow.mr-2
+            = search_field_tag :image_url, params[:image_url], autofocus: true, :placeholder => "http://", class: "form-control flex-grow"
+          .form-group
+            = submit_tag "Upload", :name => nil, class: "btn btn-primary"
+            -#%button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} Close
+        -#%button.btn.btn-primary{:type => "button"} Save changes
+

@@ -1,0 +1,18 @@
+.flash-alert
+  text-align: center
+  position: fixed
+  top: 50%
+  z-index: 9999999999
+  left: 50%
+  transform: translate(-50%, -50%)
+  pointer-events: none
+  font-family: 'Cousine', sans-serif
+  font-size: 2em
+  border-radius: 0
+  border-color: white
+  color: white
+  &.alert-info
+    background-color: $green-bright
+  &.show
+    pointer-events: all
+

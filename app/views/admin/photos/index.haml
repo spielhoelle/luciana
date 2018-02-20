@@ -1,0 +1,30 @@
+%h3
+  Photos
+  = link_to "New photo", new_admin_photo_path, class: "btn btn-primary mb-3 float-right"
+%table.table.table-hover.table-condensed.table-responsive
+  %thead
+    %tr
+      %th Image
+      %th Title
+      %th{colspan: 2}
+        = "Actions"
+
+  %tbody
+    -@photos.each_with_index do |photo, index|
+      %tr{id: "photo_#{photo.id}", class: ""}
+        %td.p-0.w-3
+          .fixed-ratio
+            = link_to edit_admin_photo_path(photo), class: "fixed-ratio__inner" do
+              = image_tag photo.image(:thumbnail), class: 'w-100'
+        %td
+          = link_to photo.title, edit_admin_photo_path(photo)
+
+
+        %td.text-right.text-nowrap
+          = link_to edit_admin_photo_path(photo), class: "btn btn-outline-success btn-sm" do
+            %span.glyphicon.glyphicon-ok{"aria-hidden" => "true"}
+            = fa_icon "pencil"
+
+          = link_to admin_photo_path(photo), :method=> :delete, class: "btn btn-outline-danger btn-sm", data: {confirm: "You sure to delete this photo?"} do
+            %span.glyphicon.glyphicon-remove{"aria-hidden" => "true"}
+            = fa_icon "remove"

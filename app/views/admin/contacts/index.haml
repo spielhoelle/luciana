@@ -1,0 +1,32 @@
+%h3 Contacts
+%table.table.table-hover.table-condensed.table-responsive
+  %thead
+    %tr
+      %th Name
+      %th Message
+      %th Email
+      %th{colspan: 2}
+        = "Actions"
+
+  %tbody
+    -@contacts.each_with_index do |contact, index|
+      %tr{id: "contact_#{contact.id}", class: ""}
+        %td
+          = link_to contact.name, edit_admin_contact_path(contact)
+
+        %td
+          = contact.message
+        %td
+          = contact.email
+
+        %td.text-right.text-nowrap
+          -#= link_to edit_admin_contact_path(contact), class: "btn btn-outline-success btn-sm" do
+            -#%span.glyphicon.glyphicon-ok{"aria-hidden" => "true"}
+            -#= fa_icon "pencil"
+
+          = link_to admin_contact_path(contact), :method=> :delete, class: "btn btn-outline-danger btn-sm", data: {confirm: "You sure to delete this contact?"} do
+            %span.glyphicon.glyphicon-remove{"aria-hidden" => "true"}
+            = fa_icon "remove"
+- if @contacts.any?
+  = link_to "Remove All", remove_all_admin_contacts_path, :method => :get, class: "btn btn-danger", data: {confirm: "This will clear this list. I hope you recieved all emails and answered thos people."}
+

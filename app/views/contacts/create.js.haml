@@ -1,0 +1,4 @@
+var flash = $("#{escape_javascript(render(partial: "shared/flash", locals: {flashes: @flash}))}")
+$('#message_count').html(#{@message_count});
+$('#flashes').html(flash);
+$('#new_contact').trigger("reset");

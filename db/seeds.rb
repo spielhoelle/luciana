@@ -1,0 +1,16 @@
+User.create email: 'admin@example.com', password: 'password123', password_confirmation: 'password123'
+puts "User admin@example.com created"
+
+Photo.create!([
+  {title: "Wrangelfilm", caption: "Custom Rails app with Vimeo api integration, custom design and selfmade backend.", order: 1, image: open("http://placecage.com/#{rand(200..400)}/#{rand(250..300)}"), link: "http://wrangelfilm.com"},
+  {title: "Clubstiftung", caption: "Strong-dark one pager which let you dive direct into the Berlin club scene. The theme purpose is focussed on visual aspects to catch both club visitors and investors. CMS is WordPress based and completely customizable and translation-ready.", order: 1, image: open("http://placecage.com/#{rand(200..400)}/#{rand(250..300)}"), link: "clubstiftung.berlin"},
+  {title: "Nil-Food", caption: "Traditional sudanese cuisine, lovingly cooked by the owner Walid and his colleagues in the heart of Berlin. At three different locations in Friedrichshain-Kreuzberg they cook whatever you want combined with peanut sauce.", order: 3, image: open("http://placecage.com/#{rand(200..400)}/#{rand(250..300)}"), link: "http://nil-food.de"},
+  {title: "Amnesty Polizei", caption: "The design of the „Themenkoordinationsgruppe Polizei und Menschenrechte“ of Amnesty International is based on their global side, but the architecture and the micro-design is unique. The site itself is very busy, it publishes several times a week new content and records every day hundreds of hits. Its wordpress-based, bilingual and a specially created mailchimp-newsletter-API connection is the cherry on the cake on this project.", order: 2, image: open("http://placecage.com/#{rand(200..400)}/#{rand(250..300)}"), link: "http://amnesty-polizei.de"},
+  {title: "Mein Grundeinkommen", caption: "During the relaunch of the website I was the responsible person for the frontend. In a team with 4 other developers we accomplished this goal is just a half year", order: 2, image: open("http://placecage.com/#{rand(200..400)}/#{rand(250..300)}"), link: "https://www.mein-grundeinkommen.de/"},
+  {title: "Radicalelectric Tattoo", caption: "Basic onepager for friends who own a tattoo shop", order: 99, image: open("http://placecage.com/#{rand(200..400)}/#{rand(250..300)}"), link: "http://radicalelectric.com/"},
+  {title: "Beautifulife", caption: "Static php based website", order: 99, image: open("http://placecage.com/#{rand(200..400)}/#{rand(250..300)}"), link: "http://beautifulife.de"},
+  {title: "Annexation", caption: "Basic onepager for the thrashmetal band of some friends", order: 99, image: open("http://placecage.com/#{rand(200..400)}/#{rand(250..300)}"), link: "http://www.annexationtrahsmetal.de"},
+  {title: "avatar", caption: "I'm a freelance fullstack software engineer and teacher - driven by idealism with pretty high values.  \r\rI'd like to contribute to sustainable organisations and other good ideas.  \r\rI try to avoid getting a small cog in the capitalist machinery.  \r\rMy heart beats for ruby on rails, javascript and all the lovely technologies out there. \r\r \r\r#punkrock #development", order: 99, image: open("https://avatars3.githubusercontent.com/u/6317641?v=4&s=460")},
+  ])
+puts "Photos created"
+

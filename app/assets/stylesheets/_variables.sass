@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css?family=Cousine')
+
+$black: #333
+
+$green-bright: #27ae60
+$green-dark: #207542
+
+$bg-primary: #292b2c
+$bg-inverse: darken($black, 5)
+$screen-xs-min:              576px
+$screen-sm-min:              690px
+$screen-md-min:              768px
+$screen-lg-min:              992px
+$screen-xl-min:              1200px
+
+// So media queries don't overlap when required, provide a maximum
+$screen-xs-max:              ($screen-sm-min - 1)
+$screen-sm-max:              ($screen-md-min - 1)
+$screen-md-max:              ($screen-lg-min - 1)
+$screen-lg-max:              ($screen-xl-min - 1)
+
+
+
+=btn-color($color-pri, $color-sec, $color-border)
+  background-color: $color-pri
+  color: $color-sec
+  border-color: $color-border
+  &.disabled
+  &:disabled,
+  &:hover,
+  &:focus
+    background-color: darken($color-pri, 10%)
+    color: $color-sec
+    border-color: darken($color-border, 10%)
+
+
+[style^="background-image"]
+  background: center center/cover no-repeat
+  &.contain
+    background-size: contain
+
+@mixin absolute-cover($distance: 0)
+  position: absolute
+  top: $distance
+  right: $distance
+  bottom: $distance
+  left: $distance
+
+
+@mixin fixed-ratio($ratio: 56.25%)
+  position: relative
+  display: block
+  width: 100%
+  overflow: hidden
+
+  &::before
+    display: block
+    padding-top: $ratio
+    content: ''
+
+//.fixed-ratio-md
+//  @media (max-width: $screen-md-min)
+//    position: relative
+//    display: block
+//    width: 100%
+//    overflow: hidden
+//
+//    &::before
+//      display: block
+//      padding-top: 56.25%
+//      content: ''
+
+@mixin fixed-ratio__inner
+  @include absolute-cover
+  display: block
+  width: 100%
+  height: 100%
+  min-height: 100%
+
+.hint
+  animation-name: pulse
+  animation-duration: 2s
+  animation-iteration-count: infinite
+  animation-timing-function: ease
+  &:hover
+    transform: scale(1.3)
+    border-color: transparent white transparent
+    animation-play-state: paused
+
+  &.top-right
+    transform-origin: top right
+    
+@keyframes pulse
+  0%,100%
+    transform: scale(1)
+
+  40%
+    transform: scale(1)
+  50%
+    transform: scale(1.3)
+  60%
+    transform: scale(1)
+
+.fixed-ratio
+  @include fixed-ratio
+
+.fixed-ratio,
+.fixed-ratio--1-to-1,
+.fixed-ratio--1-to-3
+  .fixed-ratio__inner
+    @include fixed-ratio__inner
+
+@media (max-width: $screen-sm-max)
+  .fixed-ratio-md
+    @include fixed-ratio
+
+  .fixed-ratio__inner
+    @include fixed-ratio__inner
+
+.fixed-ratio--1-to-1
+  @include fixed-ratio(100%)
+
+.fixed-ratio--1-to-3
+  @include fixed-ratio(130%)
+.absolute-cover
+  @include absolute-cover
+
+@media (min-width: $screen-sm-max)
+  .absolute-cover-md
+    @include absolute-cover
+
+.absolute-top
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+
+.z-index-foreground-3
+  z-index: 3
+
+
+.position--relative
+  position: relative
+.cursor-pointer
+  cursor: pointer
+
+
+
+.object-fit_fill
+  object-fit: fill
+
+.object-fit_contain
+  object-fit: contain
+
+.object-fit_cover
+  object-fit: cover
+
+.object-fit_none
+  object-fit: none
+
+.object-fit_scale-down
+  object-fit: scale-down
+.overflow-hidden
+  overflow: hidden
+

@@ -1,0 +1,17 @@
+%nav.navbar.navbar-expand-md.navbar-dark.navbar-inverse.flex-md-column.align-items-start.bg-inverse
+  = link_to root_path, class: "navbar-brand" do
+    Frontend
+  %button.navbar-toggler{"aria-controls" => "navbarNavAltMarkup", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarNavAltMarkup", "data-toggle" => "collapse", :type => "button"}
+    %span.navbar-toggler-icon
+  #navbarNavAltMarkup.collapse.navbar-collapse.align-items-start
+    .navbar-nav.flex-md-column
+    
+      = link_to admin_photos_path, class: "#{controller_name == "photos" ? "active" : ""} nav-item nav-link px-0" do
+        Photos
+    
+      = link_to admin_contacts_path, class: "#{controller_name == "contacts" ? "active" : ""} nav-item nav-link px-0" do
+        Contacts
+    
+      = link_to destroy_user_session_path, :method => :delete, class: 'nav-item nav-link px-0', title: "logout" do
+        Logout
+

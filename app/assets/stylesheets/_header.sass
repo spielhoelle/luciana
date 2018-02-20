@@ -1,0 +1,93 @@
+.navbar
+  border-top: 1px solid white
+  border-bottom: 1px solid white
+
+.sticky
+  position: sticky
+  top: 0
+  z-index: 999999
+
+#navi
+  @media (max-width: $screen-sm-max)
+    font-size: 16px !important
+.navbar-nav
+  .nav-item
+    .nav-link.active
+      color: white
+      background-color: $green-bright
+
+.parallax
+  text-align: center
+  background-position: center center
+  background-repeat: no-repeat
+  background-size: cover
+  overflow: hidden
+  position: relative
+  height: 33vh
+  @media (min-width: $screen-sm-max)
+    height: 66vh
+  #hero
+    position: absolute
+    width: 110%
+    height: 110%
+    top: -5%
+    left: -5%
+    right: -5%
+    bottom: -5%
+    z-index: -1
+
+
+
+.parallax-pattern-overlay 
+  background-image: url(../img/pattern.png)
+  background-repeat: repeat
+
+
+
+.typed-cursor
+  opacity: 1
+  -webkit-animation: blink 0.7s infinite
+  -moz-animation: blink 0.7s infinite
+  animation: blink 0.7s infinite
+
+.typed-blink:after
+  content: "|"
+  -webkit-animation: blink 0.7s infinite
+  -moz-animation: blink 0.7s infinite
+  animation: blink 0.7s infinite
+
+.done:after
+  content: none
+
+@keyframes blink
+  0%
+    opacity: 1
+
+  50%
+    opacity: 0
+
+  100%
+    opacity: 1
+
+
+@-webkit-keyframes blink
+  0%
+    opacity: 1
+
+  50%
+    opacity: 0
+
+  100%
+    opacity: 1
+
+
+@-moz-keyframes blink
+  0%
+    opacity: 1
+
+  50%
+    opacity: 0
+
+  100%
+    opacity: 1
+
