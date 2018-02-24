@@ -4532,27 +4532,6 @@ $(function () {
 });
 $(document).on('turbolinks:load', function () {
 
-  var articleFadeIn = function articleFadeIn() {
-    var articles = jQuery('#content').children();
-    var sizes = [];
-    articles.each(function (i) {
-      sizes[i] = articles[i].offsetTop;
-    });
-    articles.each(function (i) {
-      if (jQuery(window).scrollTop() > sizes[i] - 600 && jQuery(this).hasClass('faded-out')) {
-        jQuery(this).removeClass('faded-out');
-      }
-    });
-  };
-
-  articleFadeIn();
-  $(window).scroll(throttle(function (e) {
-    if (!scrollTimeout) {
-      scrollTimeout = setTimeout(articleFadeIn, 500);
-    }
-    scrollTimeout = null;
-  }, 500));
-
   if ($('body').hasClass('welcome')) {
     $('body').scrollspy({
       target: '.navbar',

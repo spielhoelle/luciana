@@ -32,37 +32,39 @@
 
 
   %body{class: class_for_controller, "data-spy" => "scroll", "data-target" => "#collapsingNavbarv"}
-    - if controller.controller_name == "welcome"
+    - if controller.controller_name == "welcome" && @slides.any?
       .parallax
 
             
-        #carouselExampleIndicators.carousel.slide{"data-ride" => "carousel"}
-          %ol.carousel-indicators
-            %li.active{"data-slide-to" => "0", "data-target" => "#carouselExampleIndicators"}
-            %li{"data-slide-to" => "1", "data-target" => "#carouselExampleIndicators"}
-            %li{"data-slide-to" => "2", "data-target" => "#carouselExampleIndicators"}
-          .carousel-inner
+        #carouselExampleIndicators.h-100.carousel.slide{"data-ride" => "carousel"}
+          - if @slides.length > 1
+            %ol.carousel-indicators
+              - @slides.each_with_index do |slide, index|
+                %li{class: index == 0 ? "active" : "", "data-slide-to" => "1", "data-target" => "#carouselExampleIndicators"}
+          .carousel-inner.h-100
             - @slides.each_with_index do |slide, index|
-              .carousel-item{class: index == 0 ? "active" : ""}
+              .carousel-item.h-100{class: index == 0 ? "active" : ""}
                 -#= image_tag slide.image(:original), class: 'd-block w-100'
 
-                .fixed-ratio.card-header.p-0.overflow-hidden
+                .fixed-ratio-md.card-header.p-0.overflow-hidden.h-100
                   .z-index-foreground-3.h-100.fixed-ratio__inner
-                    = link_to "http://#{slide.link.sub(/^https?\:\/\//, '')}", class: "", target: "_blank" do
-                      / %div{:style => "background-image: url(#{image_url(slide.image)})"}
+                    - if slide.link?
+                      = link_to "http://#{slide.link.sub(/^https?\:\/\//, '')}", class: "", target: "_blank" do
+                        = image_set_tag slide.image(:thumbnail), {  slide.image(:thumbnail) => '640w',  slide.image(:original) => '1024w' }, sizes: '100vw', class: 'w-100 h-100 object-fit_cover'
+                    - else 
                       = image_set_tag slide.image(:thumbnail), {  slide.image(:thumbnail) => '640w',  slide.image(:original) => '1024w' }, sizes: '100vw', class: 'w-100 h-100 object-fit_cover'
-
                 .carousel-caption.d-none.d-md-block.text-white
                   %h5= slide.title
                   %p= excerpt(slide.caption, 'an', :radius => 100)
 
 
-            %a.carousel-control-prev{"data-slide" => "prev", :href => "#carouselExampleIndicators", :role => "button"}
-              %span.carousel-control-prev-icon{"aria-hidden" => "true"}
-              %span.sr-only Previous
-            %a.carousel-control-next{"data-slide" => "next", :href => "#carouselExampleIndicators", :role => "button"}
-              %span.carousel-control-next-icon{"aria-hidden" => "true"}
-              %span.sr-only Next
+            - if @slides.length > 1
+              %a.carousel-control-prev{"data-slide" => "prev", :href => "#carouselExampleIndicators", :role => "button"}
+                %span.carousel-control-prev-icon{"aria-hidden" => "true"}
+                %span.sr-only Previous
+              %a.carousel-control-next{"data-slide" => "next", :href => "#carouselExampleIndicators", :role => "button"}
+                %span.carousel-control-next-icon{"aria-hidden" => "true"}
+                %span.sr-only Next
 
 
 

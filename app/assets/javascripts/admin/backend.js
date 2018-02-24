@@ -75,6 +75,13 @@
 
 __webpack_require__(1);
 
+$(function () {
+  $('[data-toggle="popover"]').popover({
+    trigger: 'focus'
+
+  });
+});
+
 /***/ }),
 /* 1 */
 /***/ (function(module, exports, __webpack_require__) {

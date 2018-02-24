@@ -1,4 +1,4 @@
-%section#photos.faded-out
+%section#photos
   .container
     %h2 Experience
     .grid
@@ -18,7 +18,9 @@
               .portfolio-text.d-flex.flex-column.flex-grow.justify-content-center.p-4
                 %h3.color-white.card-title.typed-blink= photo.title.capitalize
                 - if photo.caption.present?
-                  %p-0.color-white.card-title= photo.caption.gsub(/\n/, '<br>').html_safe
+                  -#%p.p-0.color-white.card-title= photo.caption.gsub(/\n/, '<br>').html_safe
+                  %p.p-0.color-white.card-title= excerpt(photo.caption.html_safe, 'an', :radius => 100)
+
                 = link_to (photo.link.start_with?("#") ? "#{photo.link}" : "http://#{photo.link.sub(/^https?\:\/\//, '')}"), class: "btn btn-primary mt-5  align-self-center #{photo.link.start_with?("#") ? "page-scroll" : ""}", target: (!photo.link.start_with?("#") ? "_blank" : "") do
                   - if photo.link.start_with?("#")
                     = photo.link.sub(/^https?\:\/\//, '').sub(/^www./,'')

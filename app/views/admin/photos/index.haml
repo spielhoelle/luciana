@@ -17,6 +17,8 @@
             = link_to edit_admin_photo_path(photo), class: "fixed-ratio__inner" do
               = image_tag photo.image(:thumbnail), class: 'w-100'
         %td
+          = photo.in_slider
+        %td
           = link_to photo.title, edit_admin_photo_path(photo)
 
 
