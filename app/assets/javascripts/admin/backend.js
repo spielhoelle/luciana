@@ -82,6 +82,15 @@ $(function () {
   });
 });
 
+document.querySelectorAll(".parentselector").forEach(function (i) {
+  i.addEventListener('click', function (e) {
+    e.preventDefault();
+    console.log(e.target.dataset);
+    document.getElementById('photo_parent_id').value = e.target.dataset.photoId;
+    $("#exampleModal").modal('hide');
+  });
+});
+
 /***/ }),
 /* 1 */
 /***/ (function(module, exports, __webpack_require__) {

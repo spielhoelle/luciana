@@ -6,24 +6,16 @@
       -@photos.each do |photo|
         .card.portfolio-item.size_s.col-lg-4.col-md-6.col-sm-12.mb-5.mb-md-0
           .position--relative
-            - unless photo.link.start_with?("#")
-              = link_to "http://#{photo.link.sub(/^https?\:\/\//, '')}", class: "triangle hint top-right", target: "_blank" do
-                = fa_icon "arrow-right", class: "color-black"
-            .fixed-ratio-md.absolute-cover-md.card-header.p-0.overflow-hidden
+            .fixed-ratio-md.card-header.p-0.overflow-hidden
               .z-index-foreground-3.portfolio-image.h-100.fixed-ratio__inner
-                = link_to "http://#{photo.link.sub(/^https?\:\/\//, '')}", class: "", target: "_blank" do
+                -#= link_to "http://#{photo.link.sub(/^https?\:\/\//, '')}", class: "", target: "_blank" do
                   / %div{:style => "background-image: url(#{image_url(photo.image)})"}
-                  = image_set_tag photo.image(:thumbnail), {  photo.image(:thumbnail) => '640w',  photo.image(:original) => '1024w' }, sizes: '100vw', class: 'w-100 h-100 object-fit_cover'
-            .card-block.background-color-black-transparent.text-center.d-flex.flex-column.p-0{:class => photo.link.start_with?("#") ? "" : "faded-away"}
+                = image_set_tag photo.image(:thumbnail), {  photo.image(:thumbnail) => '640w',  photo.image(:original) => '1024w' }, sizes: '100vw', class: 'w-100 h-100 object-fit_cover'
+            .card-block.background-color-black-transparent.d-flex.flex-column.p-0{:class => photo.link.start_with?("#") ? "" : "faded-away"}
               .portfolio-text.d-flex.flex-column.flex-grow.justify-content-center.p-4
-                %h3.color-white.card-title.typed-blink= photo.title.capitalize
+                %h3.card-title.typed-blink= photo.title.capitalize
                 - if photo.caption.present?
-                  -#%p.p-0.color-white.card-title= photo.caption.gsub(/\n/, '<br>').html_safe
-                  %p.p-0.color-white.card-title= excerpt(photo.caption.html_safe, 'an', :radius => 100)
+                  -#%p.p-0..card-title= photo.caption.gsub(/\n/, '<br>').html_safe
+                  %p.p-0.card-title= excerpt(photo.caption.html_safe, 'an', :radius => 100)
 
-                = link_to (photo.link.start_with?("#") ? "#{photo.link}" : "http://#{photo.link.sub(/^https?\:\/\//, '')}"), class: "btn btn-primary mt-5  align-self-center #{photo.link.start_with?("#") ? "page-scroll" : ""}", target: (!photo.link.start_with?("#") ? "_blank" : "") do
-                  - if photo.link.start_with?("#")
-                    = photo.link.sub(/^https?\:\/\//, '').sub(/^www./,'')
-                  - else
-                    = "www.#{photo.link.sub(/^https?\:\/\//, '').sub(/^www./,'')}"
 

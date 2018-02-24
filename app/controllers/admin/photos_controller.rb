@@ -9,6 +9,7 @@ module Admin
 
     def edit
       @photo = Photo.find(params[:id])
+      @all_photos = Photo.where.not(id: @photo.id)
     end
 
     def new
@@ -49,7 +50,7 @@ module Admin
     private
     
     def photo_params
-      params.require(:photo).permit(:title, :caption, :order, :link, :image, :in_slider, all_tags: [], all_categories: [])
+      params.require(:photo).permit(:title, :caption, :order, :link, :image, :in_slider, :parent_id, all_tags: [], all_categories: [])
     end
   end
 end

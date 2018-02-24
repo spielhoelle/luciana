@@ -1,5 +1,6 @@
 class Photo < ApplicationRecord
   has_many :photo_taggings
+  has_one :photo
   has_many :tags, through: :photo_taggings, dependent: :destroy
 
   has_many :photo_categories
