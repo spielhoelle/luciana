@@ -1,6 +1,7 @@
 class Photo < ApplicationRecord
   has_many :photo_taggings
-  has_one :photo
+  has_many :children, :class_name => "Photo", foreign_key: "parent_id"
+  belongs_to :parent, :class_name => "Photo"
   has_many :tags, through: :photo_taggings, dependent: :destroy
 
   has_many :photo_categories

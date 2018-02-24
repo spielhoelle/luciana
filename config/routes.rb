@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
+    resources :photos, only: [:index, :show]
+
   namespace :admin do
     resources :contacts do
       collection do

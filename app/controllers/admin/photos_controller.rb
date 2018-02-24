@@ -9,7 +9,7 @@ module Admin
 
     def edit
       @photo = Photo.find(params[:id])
-      @all_photos = Photo.where.not(id: @photo.id)
+      @all_photos = Photo.where.not(id: @photo.id).where("parent_id IS NULL")
     end
 
     def new
