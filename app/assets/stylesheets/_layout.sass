@@ -83,7 +83,7 @@
 .showmap
   opacity: 1
   pointer-events: all
-  z-index: 0
+  z-index: -1
 #mapoverlay
   transition: opacity .3s ease
 .overlay-hidden
@@ -97,9 +97,21 @@
   input[type="email"],
   textarea
     background-color: transparent
-  .triangle
-    transform: scale3d(1,1,1)
-    border-width: 0 100px 100px 0
+.angle
+  transform: rotate(45deg)
+  border: 0px solid black
+  &.bottom
+    border-width: 0 1px 1px 0
+  &.right
+    border-width: 0 0 1px 1px 
+  &.left
+    border-width: 1px 1px 0 0
+  &.text-white
+    border-color: white
+  width: 2em
+  height: 2em
+
+  
 
 
 #content
@@ -135,4 +147,31 @@
 .top-100vh
   top: 100vh
   transform: translateY(-100%)
+  padding-bottom: 100px
+
+.carousel
+  .carousel-item
+    transform: translate(0,0)!important
+    -webkit-transition: opacity 3s
+    -moz-transition: opacity 3s
+    -ms-transition: opacity 3s
+    -o-transition: opacity 3s
+    transition: opacity 3s
+  .carousel-item-left
+    left: 0
+    opacity: 0
+    //z-index: 2
+  .carousel-item-right
+    left: 0
+    opacity: 1
+    //z-index: 1
+.carousel.carousel-fade .carousel-item 
+  position: absolute
+  display: block
+  opacity: 0
+  transition: opacity ease-out .3s
+
+
+.carousel.carousel-fade .carousel-item.active 
+  opacity: 1 !important
 

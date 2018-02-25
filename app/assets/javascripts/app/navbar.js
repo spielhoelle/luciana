@@ -33,10 +33,10 @@ $(document).on('turbolinks:load', function() {
   });
 
   var progress = function () {
-    var backtotop = $('.backtotop-container');
     var hint = $('#scroll_down');
     var scrolled = $(document).scrollTop();
-    if (scrolled > 300) {
+    if (scrolled > 300 ) {
+      console.log("hide")
       hint.css({
         'opacity': '0'
       })
@@ -45,19 +45,10 @@ $(document).on('turbolinks:load', function() {
         'opacity': '1'
       })
     }
-    if (scrolled > 500) {
-      backtotop.css({
-        'bottom': '0'
-      })
-
-    } else {
-      backtotop.css({
-        'bottom': '-50px'
-      })
-    }
     scrollTimeout = null;
   }
 
 
+  progress();
 
 });

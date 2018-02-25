@@ -85,7 +85,10 @@
 
 
 
-  = f.submit "Update", class: "btn btn-primary btn-lg float-right", disabled: false
+  - if action_name != "new"
+    = link_to "Show", photo_path(@photo), class: "btn btn-secondary float-right" 
+  = f.submit "Update", class: "btn btn-primary float-right", disabled: false
+
 
 
 
@@ -98,10 +101,11 @@
           %span{"aria-hidden" => "true"} ×
       .modal-body
         .row
-          - @all_photos.each do |photo|
-            .col-md-3.col-sm-6
-              = link_to edit_admin_photo_path(photo), class: "fixed-ratio__inner" do
-                = image_tag photo.image(:thumbnail), class: 'w-100 parentselector ', "data-photo-id": photo.id
+          - if @all_photos.present?
+            - @all_photos.each do |photo|
+              .col-md-3.col-sm-6
+                = link_to edit_admin_photo_path(photo), class: "fixed-ratio__inner" do
+                  = image_tag photo.image(:thumbnail), class: 'w-100 parentselector ', "data-photo-id": photo.id
 
       .modal-footer
         %button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} Close

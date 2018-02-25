@@ -2,7 +2,6 @@
 %table.table.table-hover.table-condensed.table-responsive
   %thead
     %tr
-      %th Name
       %th Message
       %th Email
       %th{colspan: 2}
@@ -11,9 +10,6 @@
   %tbody
     -@contacts.each_with_index do |contact, index|
       %tr{id: "contact_#{contact.id}", class: ""}
-        %td
-          = link_to contact.name, edit_admin_contact_path(contact)
-
         %td
           = contact.message
         %td

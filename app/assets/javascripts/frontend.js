@@ -3872,7 +3872,10 @@ __webpack_require__(17);
 
 __webpack_require__(18);
 
-$('.carousel').carousel();
+$('.carousel').carousel({
+  interval: 3000,
+  pause: false
+});
 
 function throttle(fn, threshhold, scope) {
   threshhold || (threshhold = 250);
@@ -3903,23 +3906,24 @@ $(function () {
 });
 $(document).on('turbolinks:load', function () {
 
-  if ($('body').hasClass('welcome')) {
-    $('body').scrollspy({
-      target: '.navbar',
-      offset: 100
-    });
+  //if ($('body').hasClass('welcome')) {
+  $('body').scrollspy({
+    target: '.navbar',
+    offset: 100
+  });
 
-    $('a.page-scroll').bind('click', function (event) {
-      var $ele = $(this);
-      $('html, body').stop().animate({
-        scrollTop: $($ele.attr('href')).offset().top - 60
-      }, 600);
-      if ($ele[0].innerText == "Hire me") {
-        document.getElementById('contact_name').focus();
-      }
-      event.preventDefault();
-    });
-  }
+  $('a.page-scroll').bind('click', function (event) {
+    var $ele = $(this);
+    $('html, body').stop().animate({
+      scrollTop: $($ele.attr('href')).offset().top - 60
+    }, 300);
+    if ($ele[0].innerText == "Hire me") {
+      document.getElementById('contact_name').focus();
+    }
+    event.preventDefault();
+  });
+  //}
+
 
   // $('#galleryModal').on('show.bs.modal', function(e) {
   //   $('#galleryImage').attr("src", $(e.relatedTarget).data("src"));
@@ -4825,10 +4829,10 @@ $(document).on('turbolinks:load', function () {
   });
 
   var progress = function progress() {
-    var backtotop = $('.backtotop-container');
     var hint = $('#scroll_down');
     var scrolled = $(document).scrollTop();
     if (scrolled > 300) {
+      console.log("hide");
       hint.css({
         'opacity': '0'
       });
@@ -4837,17 +4841,10 @@ $(document).on('turbolinks:load', function () {
         'opacity': '1'
       });
     }
-    if (scrolled > 500) {
-      backtotop.css({
-        'bottom': '0'
-      });
-    } else {
-      backtotop.css({
-        'bottom': '-50px'
-      });
-    }
     scrollTimeout = null;
   };
+
+  progress();
 });
 
 /***/ }),

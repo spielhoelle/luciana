@@ -1,0 +1,25 @@
+#carouselExampleIndicators.h-100.carousel.carousel-fade{"data-ride" => "carousel"}
+  - if @slides.length > 1
+    %ol.carousel-indicators.justify-content-end
+      - @slides.each_with_index do |slide, index|
+        %li{class: index == 0 ? "active" : "", "data-slide-to" => "1", "data-target" => "#carouselExampleIndicators"}
+  .carousel-inner.h-100
+    - @slides.each_with_index do |slide, index|
+      .carousel-item.h-100{class: index == 0 ? "active" : ""}
+
+        .fixed-ratio-md.card-header.p-0.overflow-hidden.h-100
+          .z-index-foreground-3.h-100.fixed-ratio__inner
+            = link_to photo_path(slide), class: "" do
+              = image_set_tag slide.image(:thumbnail), {  slide.image(:thumbnail) => '640w',  slide.image(:original) => '1024w' }, sizes: '100vw', class: 'w-100 h-100 object-fit_cover'
+        .carousel-caption.d-none.d-md-block.text-white.text-right
+          %h5= slide.title
+          %p= excerpt(slide.caption, 'an', :radius => 100)
+
+
+    - if @slides.length > 1
+      %a.carousel-control-prev{"data-slide" => "prev", :href => "#carouselExampleIndicators", :role => "button"}
+        .angle.right.text-white
+      %a.carousel-control-next{"data-slide" => "next", :href => "#carouselExampleIndicators", :role => "button"}
+
+        .angle.left.text-white
+

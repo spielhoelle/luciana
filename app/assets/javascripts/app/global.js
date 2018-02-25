@@ -1,7 +1,10 @@
 import './flashes';
 import './gmap';
 import './navbar';
-$('.carousel').carousel()
+$('.carousel').carousel({
+  interval: 3000,
+  pause: false
+});
 
 
 function throttle(fn, threshhold, scope) {
@@ -36,7 +39,7 @@ $(document).on('turbolinks:load', function() {
 
 
 
-  if ($('body').hasClass('welcome')) {
+  //if ($('body').hasClass('welcome')) {
     $('body').scrollspy({
       target: '.navbar',
       offset: 100
@@ -46,13 +49,13 @@ $(document).on('turbolinks:load', function() {
       var $ele = $(this);
       $('html, body').stop().animate({
         scrollTop: ($($ele.attr('href')).offset().top - 60)
-      }, 600);
+      }, 300);
       if ($ele[0].innerText == "Hire me"){
         document.getElementById('contact_name').focus();
       }
       event.preventDefault();
     });
-  }
+  //}
 
 
   // $('#galleryModal').on('show.bs.modal', function(e) {

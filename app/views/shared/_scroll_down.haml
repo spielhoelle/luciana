@@ -1,0 +1,5 @@
+.w-100.z-index-foreground-3{class: controller_name == "photos" ? "position-absolute top-100vh" : ""}
+  %a.d-flex.d-flex.justify-content-center.page-scroll#scroll_down{href: controller_name == "photos" ? "#photo_content" : "#about", class: controller_name == "photos" ? "color-white" : "color-black"}
+    .hint
+      .angle.bottom
+    -#= fa_icon "2x arrow-down", class: "hint text-center cursor-pointer "

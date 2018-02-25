@@ -1,6 +1,7 @@
 class WelcomeController < ApplicationController
 
   def index
+    super
     @avatar = Photo.find_by(title: "avatar")
     @page_title = "Luciana Damiao"
     @contact = Contact.new

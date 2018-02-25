@@ -7,7 +7,7 @@ class ContactsController < ApplicationController
   def create
     @mail = Mailer.new(allowed_params)
     @mail.request = request
-    if @mail.deliver
+    if @mail.deliver || Rails.env.development?
       flash.now[:notice] = 'Thank you for your message!'
       @contact = Contact.new(allowed_params)
       @contact.save
@@ -23,7 +23,7 @@ class ContactsController < ApplicationController
 
 
   def allowed_params
-    params.require(:contact).permit(:name, :email, :message, :nickname)
+    params.require(:contact).permit(:email, :message, :nickname)
   end
 
 end

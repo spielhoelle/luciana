@@ -1,25 +1,7 @@
 .container.my-3.text-center
   %h2 My Work
 
-  - if @categories.any?
-    %ul.list-inline.mb-0.mr-3
-      %span.mr-1= fa_icon "bars"
-      = link_to "All", photos_path
-      - @categories.each_with_index do |cat, index|
-        %li.list-inline-item
-          = link_to photos_path("cat": cat.title, :tag => params[:tag]), class: params[:cat] == cat.title ? "text-muted" : "" do
-            = cat.title
-
-  - if @tags.any?
-    %ul.list-inline.mr-3
-      %span.mr-1= fa_icon "tags"
-      - @tags.each_with_index do |tag, index|
-        %li.list-inline-item
-          = link_to photos_path("tag": tag.title, :cat => params[:cat]) ,class: params[:tag] == tag.title ? "text-muted" : "" do
-            = tag.title
+  = render "photos/meta"
 .card-columns
   -@photos.each do |photo|
-    .card
-      = link_to photo_path(photo) do
-        = image_set_tag photo.image(:thumbnail), {  photo.image(:thumbnail) => '640w',  photo.image(:original) => '1024w' }, sizes: '100vw', class: 'w-100 h-100 object-fit_cover'
-      .card-header.p-0.overflow-hidden
+    = render "photos/card", photo: photo

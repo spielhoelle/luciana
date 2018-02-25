@@ -39,7 +39,7 @@ photo_list = [
 Photo.create(title: "avatar",
              caption: "I'm a freelance photographer  \r\rMy heart beats for ruby on fashion, summer and all the lovely technologies out there.",
              order: 99,
-             image: open("http://lorempixel.com/#{rand(200..400)}/#{rand(250..300)}"),
+             image: open("http://lorempixel.com/#{rand(200..400)}/#{rand(250..300)}/fashion"),
             )
 
 photo_list.each_with_index do |photo, index|
@@ -48,7 +48,7 @@ photo_list.each_with_index do |photo, index|
               caption: "",
               order: 99,
               in_slider: index < 3 ? index : nil,
-              image: open("http://lorempixel.com/#{rand(1000..1200)}/#{rand(800..1000)}"),
+              image: open("http://lorempixel.com/#{rand(1000..1200)}/#{rand(800..1000)}/fashion"),
               link: "http://www.annexationtrahsmetal.de",
               created_at: time,
               updated_at: time)

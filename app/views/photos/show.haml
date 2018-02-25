@@ -1,34 +1,15 @@
-.w-100.position-absolute.top-100vh.z-index-foreground-3
-  %a.d-flex.d-flex.justify-content-center.page-scroll.color-white#scroll_down{href: "#about"}
-    = fa_icon "5x angle-down", class: "hint text-center cursor-pointer "
-.position--relative
+.position--relative.overflow-hidden
+  = render "shared/scroll_down"
   = image_set_tag @photo.image(:thumbnail), {  @photo.image(:thumbnail) => '640w',  @photo.image(:original) => '1024w' }, sizes: '100vw', class: 'w-100 h-100 object-fit_cover'
   %h3.position-fixed.card-title.top.left.color-white.mt-5.p-5= @photo.title.capitalize
-.container
+  .my-3.position-absolute.right.top.text-white
+    = render "photos/single_meta", photo: @photo, classes: "text-white"
+
+.container#photo_content
   .card
-    -#.card-header.p-0.overflow-hidden
     .card-block.background-color-black-transparent.d-flex.flex-column.p-0{:class => ""}
-      %ul.list-inline.mb-0.mr-3
-        - @photo.categories.each_with_index do |cat, index|
-          %li.list-inline-item
-            = link_to photos_path("cat": cat.title, :tag => params[:tag]), class: "" do
-              %span.mr-1= fa_icon "bars"
-              = cat.title
-              - if index < @photo.categories.length - 1
-                = ","
-
-      %ul.list-inline.mr-3
-        - @photo.tags.each_with_index do |tag, index|
-          %li.list-inline-item
-            = link_to photos_path("tag": tag.title, :cat => params[:cat]) , class: "" do
-              %span.mr-1= fa_icon "tags"
-              = tag.title
-              - if index < @photo.tags.length - 1
-                = ","
-
-      .portfolio-text.d-flex.flex-column.flex-grow.justify-content-center.p-4
+      .d-flex.flex-column.flex-grow.justify-content-center.p-4
         - if @photo.caption.present?
-          -#%p.p-0..card-title= @photo.caption.gsub(/\n/, '<br>').html_safe
           %p.p-0.card-title= @photo.caption.html_safe
 
   - if @photo.children
@@ -39,3 +20,8 @@
           = image_set_tag child.image(:thumbnail), {  child.image(:thumbnail) => '640w',  child.image(:original) => '1024w' }, sizes: '100vw', class: 'w-100 h-100 object-fit_cover'
 
 
+  -if user_signed_in?
+  
+    = link_to edit_admin_photo_path(@photo), class: "btn btn-primary", title: "Edit" do
+      = fa_icon "edit"
+      Edit

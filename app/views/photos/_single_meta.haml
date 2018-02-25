@@ -1,0 +1,16 @@
+- classes = local_assigns[:classes] || 'fa-1x'
+- if photo.categories.any?
+  %ul.list-inline.mb-0.mr-3
+    %span.mr-3= fa_icon "bars"
+    - photo.categories.each_with_index do |cat, index|
+      %li.list-inline-item
+        = link_to photos_path("cat": cat.title, :tag => params[:tag]), class: params[:cat] == cat.title ? "" : "" do
+          %span{class: classes}= cat.title
+
+- if photo.tags.any?
+  %ul.list-inline.mr-3
+    %span.mr-3= fa_icon "tags"
+    - photo.tags.each_with_index do |tag, index|
+      %li.list-inline-item
+        = link_to photos_path("tag": tag.title, :cat => params[:cat]) ,class: params[:tag] == tag.title ? "" : "" do
+          %span{class: classes}= tag.title
