@@ -17,27 +17,9 @@
         %li.list-inline-item
           = link_to photos_path("tag": tag.title, :cat => params[:cat]) ,class: params[:tag] == tag.title ? "text-muted" : "" do
             = tag.title
-.grid
-  .grid-sizer
+.card-columns
   -@photos.each do |photo|
-    .card.portfolio-item.size_s.col-lg-4.col-md-6.col-sm-12.mb-5.mb-md-0
-      .position--relative
-        .fixed-ratio-md.card-header.p-0.overflow-hidden
-          .z-index-foreground-3.portfolio-image.h-100.fixed-ratio__inner
-            -#= link_to "http://#{photo.link.sub(/^https?\:\/\//, '')}", class: "", target: "_blank" do
-              / %div{:style => "background-image: url(#{image_url(photo.image)})"}
-            = link_to photo_path(photo) do
-              = image_set_tag photo.image(:thumbnail), {  photo.image(:thumbnail) => '640w',  photo.image(:original) => '1024w' }, sizes: '100vw', class: 'w-100 h-100 object-fit_cover'
-        -#.card-block.background-color-black-transparent.d-flex.flex-column.p-0{:class => ""}
-          -#.portfolio-text.d-flex.flex-column.flex-grow.justify-content-center.p-4
-            -#= link_to photo_path(photo) do
-              -#%h3.card-title.typed-blink= photo.title.capitalize
-            -#- if photo.caption.present?
-              -#-#%p.p-0..card-title= photo.caption.gsub(/\n/, '<br>').html_safe
-              -#%p.p-0.card-title= excerpt(photo.caption.html_safe, 'an', :radius => 100)
-            -#- if photo.children
-              -#- photo.children.each do |child|
-                -#= link_to child.title, photo_path(child)
-
-
-
+    .card
+      = link_to photo_path(photo) do
+        = image_set_tag photo.image(:thumbnail), {  photo.image(:thumbnail) => '640w',  photo.image(:original) => '1024w' }, sizes: '100vw', class: 'w-100 h-100 object-fit_cover'
+      .card-header.p-0.overflow-hidden
