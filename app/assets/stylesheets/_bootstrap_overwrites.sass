@@ -1,31 +1,31 @@
 a
-  color: $green-bright
+  color: $bg-primary
   &:hover, &:focus
-    color: $green-dark
+    color: darken( $bg-primary , 10)
 .btn,
 .form-control
   border-radius: 0
 
 .btn-primary
-  @include btn-color($green-bright,  white , $green-bright)
+  @include btn-color($bg-primary,  white , $bg-primary)
 
 .btn-link
   @include btn-color(transparent,  white , transparent)
   &:hover
-    color: $green-bright !important
+    color: $bg-primary !important
 
 .btn-outline-primary
-  @include btn-color(transparent, $green-bright , $green-bright)
+  @include btn-color(transparent, $bg-primary , $bg-primary)
 
 .btn-outline-secondary
   @include btn-color(transparent, white , white)
 
 .bg-primary
-  background-color: $green-bright !important
+  background-color: $bg-primary !important
 .bg-inverse
   background-color: $bg-inverse !important
 .badge-primary 
-  background-color: $green-bright !important
+  background-color: $bg-primary !important
 .btn-xl
   padding: 15px 30px
   font-size: 20px
@@ -67,5 +67,5 @@ a
 hr
   width: 100%
 code
-  color: $green-bright
+  color: $bg-primary
   background-color: $bg-inverse

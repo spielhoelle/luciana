@@ -70,10 +70,6 @@
 
     = render "shared/navigation"
 
-    - if controller.controller_name == "welcome"
-      .bg-white
-        %a.d-flex.d-flex.justify-content-center.page-scroll#scroll_down{href: "#about"}
-          = fa_icon "5x angle-down", class: "hint text-center cursor-pointer "
 
     #flashes
       = render "shared/flash", flashes: flash

@@ -11,71 +11,77 @@
       ="#{@photo.title} - Id ##{@photo.id}"
     %small= f.submit "Update", class: "ml-2 btn btn-primary float-right", disabled: false
   .row
-    .col-md-6
+    .col-md-4
       .form-group
         - unless action_name == "new"
           = image_tag(@photo.image, class: "img-fluid")
         %label{:for => "image"}
         = f.file_field :image
 
-    .col-md-6
+    .col-md-8
+      .row
+        .col-md-6
+          .form-group
+            %label{:for => "title"} Title
+            = f.text_field :title, placeholder: "Title", class: "form-control"
+          .form-group
+            %label{:for => "in_slider"}
+              Sliderposition
+            = link_to "#", "data-content" => "If there is just one image defined with sliderposition it will display without slider functionality but as fullscreen header image. If you define  more than one image as a sliderimage, the slider is active, the right-left buttons and the small bottom navigation appear.", "data-toggle" => "popover", "data-trigger" => "focus" , :title => "How the slider works." do
+              = fa_stacked_icon "info inverse", base: "circle", class: ""
+
+
+              %small 
+            = f.number_field :in_slider, placeholder: "1-99", class: "form-control"
+          .form-group
+            %label{:for => "parent_id"}
+              Parent Id
+            = link_to "#", "data-content" => "Images which have a parent id are children from a Masterimage. That means one Masterimage can have many children which have all the same parent_id.", "data-toggle" => "popover", "data-trigger" => "focus" , :title => "Parent/Child association" do
+              = fa_stacked_icon "info inverse", base: "circle", class: ""
+            .input-group
+              = f.text_field :parent_id, placeholder: "ID", class: "form-control"
+              .input-group-append
+                %button.btn.btn-primary{"data-target" => "#exampleModal", "data-toggle" => "modal", :type => "button"}
+                  Select parent Photo
+        .col-md-6
+          .form-group
+            .field-unit__label
+              = f.label :all_categories
+            .field-unit__field
+              %div#category_input
+
+                = f.autocomplete_field :all_categories,
+                autocomplete_category_title_admin_photos_path,
+                "data-role" => "categoriesinput",
+                placeholder: "Categories separated with comma",
+                class: "form-control",
+                'data-delimiter' => ', ',
+                :multiple => true,
+                :append_to => "#category_input",
+                'data-auto-focus' => true
+
+          .form-group
+            .field-unit__label
+              = f.label :all_tags
+            .field-unit__field
+              %div#tag_input
+
+                = f.autocomplete_field :all_tags,
+                autocomplete_tag_title_admin_photos_path,
+                "data-role" => "tagsinput",
+                placeholder: "Tags separated with comma",
+                class: "form-control",
+                'data-delimiter' => ', ',
+                :multiple => true,
+                :append_to => "#tag_input",
+                'data-auto-focus' => true
+
+          .form-group
+            %label{:for => "link"} Link
+            = f.text_field :link, placeholder: "Link", class: "form-control"
       .form-group
-        %label{:for => "title"} Title
-        = f.text_field :title, placeholder: "Title", class: "form-control"
-      .form-group
-        %label{:for => "in_slider"}
-          Sliderposition
-        = link_to "#", "data-content" => "If there is just one image defined with sliderposition it will display without slider functionality but as fullscreen header image. If you define  more than one image as a sliderimage, the slider is active, the right-left buttons and the small bottom navigation appear.", "data-toggle" => "popover", "data-trigger" => "focus" , :title => "How the slider works." do
-          = fa_stacked_icon "info inverse", base: "circle", class: ""
-
-
-          %small 
-        = f.number_field :in_slider, placeholder: "1-99", class: "form-control"
-      .form-group
-        %label{:for => "parent_id"}
-          Parent Id
-        = link_to "#", "data-content" => "Images which have a parent id are children from a Masterimage. That means one Masterimage can have many children which have all the same parent_id.", "data-toggle" => "popover", "data-trigger" => "focus" , :title => "Parent/Child association" do
-          = fa_stacked_icon "info inverse", base: "circle", class: ""
-        .input-group
-          = f.text_field :parent_id, placeholder: "ID", class: "form-control"
-          .input-group-append
-            %button.btn.btn-primary{"data-target" => "#exampleModal", "data-toggle" => "modal", :type => "button"}
-              Select parent Photo
-      .form-group
-        .field-unit__label
-          = f.label :all_categories
-        .field-unit__field
-          %div#category_input
-
-            = f.autocomplete_field :all_categories,
-            autocomplete_category_title_admin_photos_path,
-            "data-role" => "categoriesinput",
-            placeholder: "Categories separated with comma",
-            class: "form-control",
-            'data-delimiter' => ', ',
-            :multiple => true,
-            :append_to => "#category_input",
-            'data-auto-focus' => true
-
-      .form-group
-        .field-unit__label
-          = f.label :all_tags
-        .field-unit__field
-          %div#tag_input
-
-            = f.autocomplete_field :all_tags,
-            autocomplete_tag_title_admin_photos_path,
-            "data-role" => "tagsinput",
-            placeholder: "Tags separated with comma",
-            class: "form-control",
-            'data-delimiter' => ', ',
-            :multiple => true,
-            :append_to => "#tag_input",
-            'data-auto-focus' => true
-
-  .form-group
-    %label{:for => "caption"} Caption
-    = f.text_area :caption, placeholder: "Caption name", class: "form-control"
+        %label{:for => "caption"} Caption
+        = f.text_area :caption, placeholder: "Caption name", class: "form-control"
 
 
 

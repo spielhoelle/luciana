@@ -1,18 +1,19 @@
-%section#about
-  .container
+.bg-white
+  %a.d-flex.d-flex.justify-content-center.page-scroll#scroll_down{href: "#about"}
+    = fa_icon "5x angle-down", class: "hint text-center cursor-pointer "
+
+- if @avatar.present?
+  %section.container#about
     .row
       .col-md-3.offset-md-1.col-sm-6.offset-sm-3
-        .fixed-ratio--1-to-1.mb-5.mb-md-0
-          - if @avatar.present?
+        .px-3
+          .fixed-ratio--1-to-1.mb-5.mb-md-0
             = image_set_tag @avatar.image(:thumbnail), {  @avatar.image(:thumbnail) => '640w',  @avatar.image(:original) => '1024w' }, sizes: '100vw', class: 'w-100 h-100 fixed-ratio__inner object-fit_cover rounded-circle'
-          - else
-            = image_tag "https://avatars0.githubusercontent.com/u/6317641?s=400&u=44ba7bc4d923af7f9c0e434b86a0fee47d4d5b7d&v=4", class: "w-100 h-100 fixed-ratio__inner object-fit_cover rounded-circle"
       .col-md-7.col-sm-10.offset-sm-1.text-center.text-md-left
-        %h2.typed-blink.mb-3 Hey there...
 
-        - if @avatar.present?
-          %div= @avatar.caption.gsub("\r", "<br/>").html_safe
+        %h2.mb-3 Hey there...
+        %div= @avatar.caption.gsub("\r", "<br/>").html_safe
 
-        = link_to  "#skills", class: "btn btn-outline-secondary mt-5 page-scroll align-self-center", target: "_blank" do
-          = "See what I do..."
+    = link_to  "#skills", class: "btn btn-outline-secondary mt-5 page-scroll align-self-center", target: "_blank" do
+      = "See what I do..."
 

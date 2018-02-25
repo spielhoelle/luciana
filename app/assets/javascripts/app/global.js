@@ -1,7 +1,6 @@
 import './flashes';
 import './gmap';
 import './navbar';
-import './grid';
 $('.carousel').carousel()
 
 

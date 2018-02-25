@@ -7,11 +7,30 @@
 .container
   .card
     -#.card-header.p-0.overflow-hidden
-    .card-block.background-color-black-transparent.d-flex.flex-column.p-0{:class => @photo.link.start_with?("#") ? "" : "faded-away"}
+    .card-block.background-color-black-transparent.d-flex.flex-column.p-0{:class => ""}
+      %ul.list-inline.mb-0.mr-3
+        - @photo.categories.each_with_index do |cat, index|
+          %li.list-inline-item
+            = link_to photos_path("cat": cat.title, :tag => params[:tag]), class: "" do
+              %span.mr-1= fa_icon "bars"
+              = cat.title
+              - if index < @photo.categories.length - 1
+                = ","
+
+      %ul.list-inline.mr-3
+        - @photo.tags.each_with_index do |tag, index|
+          %li.list-inline-item
+            = link_to photos_path("tag": tag.title, :cat => params[:cat]) , class: "" do
+              %span.mr-1= fa_icon "tags"
+              = tag.title
+              - if index < @photo.tags.length - 1
+                = ","
+
       .portfolio-text.d-flex.flex-column.flex-grow.justify-content-center.p-4
         - if @photo.caption.present?
           -#%p.p-0..card-title= @photo.caption.gsub(/\n/, '<br>').html_safe
           %p.p-0.card-title= @photo.caption.html_safe
+
   - if @photo.children
     .row
       - @photo.children.each do |child|
