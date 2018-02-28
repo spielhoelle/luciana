@@ -17,11 +17,13 @@
       - @photo.children.each do |child|
         .col-md-3.col-sm-4.col-6
           = link_to child.title, photo_path(child)
-          = image_set_tag child.image(:thumbnail), {  child.image(:thumbnail) => '640w',  child.image(:original) => '1024w' }, sizes: '100vw', class: 'w-100 h-100 object-fit_cover'
+          = link_to photo_path(child) do
+            = image_set_tag child.image(:thumbnail), {  child.image(:thumbnail) => '640w',  child.image(:original) => '1024w' }, sizes: '100vw', class: 'w-100 object-fit_cover'
 
 
   -if user_signed_in?
   
-    = link_to edit_admin_photo_path(@photo), class: "btn btn-primary", title: "Edit" do
-      = fa_icon "edit"
-      Edit
+    .pt-5
+      = link_to edit_admin_photo_path(@photo), class: "btn btn-primary", title: "Edit" do
+        = fa_icon "edit"
+        Edit

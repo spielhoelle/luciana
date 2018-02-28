@@ -148,7 +148,8 @@
   top: 100vh
   transform: translateY(-100%)
   padding-bottom: 100px
-
+.text-shadow
+  text-shadow: 1px 2px 5px black
 .carousel
   .carousel-item
     transform: translate(0,0)!important
@@ -175,3 +176,8 @@
 .carousel.carousel-fade .carousel-item.active 
   opacity: 1 !important
 
+.carousel-caption
+  transform: translate(50px,0);
+  transition: opacity .5s ease 0s,transform .5s ease 0s
+  .active &
+    transform: translate(0,0);

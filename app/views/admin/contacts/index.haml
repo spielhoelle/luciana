@@ -4,6 +4,7 @@
     %tr
       %th Message
       %th Email
+      %th Date
       %th{colspan: 2}
         = "Actions"
 
@@ -14,6 +15,8 @@
           = contact.message
         %td
           = contact.email
+        %td
+          = contact.created_at
 
         %td.text-right.text-nowrap
           -#= link_to edit_admin_contact_path(contact), class: "btn btn-outline-success btn-sm" do
