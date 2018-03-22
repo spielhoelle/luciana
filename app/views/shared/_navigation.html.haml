@@ -1,14 +1,18 @@
 %nav.navbar.navbar-inverse.bg-white.p-0#navi{class: controller_name != "photos" ? "sticky" : ""}
-  .container.p-0.w-100-md
+  .p-0.w-100-md.container-fluid
     %ul.nav.navbar-nav.w-100.flex-row
-      %li.nav-item.flex-grow.text-center.text-truncate
+      %li.nav-item.text-center.text-truncate
         = link_to (controller_name != "welcome" ? "#{root_path}#about" : "#about"), "data-turbolinks": "false", class: "#{controller_name == "welcome" ? "page-scroll" : ""} nav-link px-0 px-sm-2 p-md-3" do
           = "About"
-      %li.nav-item.flex-grow.text-center.text-truncate
+      %li.nav-item.text-center.text-truncate
         = link_to (controller_name != "welcome" ? "#{root_path}#photos" : "#photos"), "data-turbolinks": "false", class: "#{controller_name == "welcome" ? "page-scroll" : ""} nav-link px-0 px-sm-2 p-md-3" do
           = "Experience"
-      %li.nav-item.flex-grow.text-center.text-truncate
+      %li.nav-item.text-center.text-truncate
         = link_to (controller_name != "welcome" ? "#{root_path}#contact" : "#contact"), "data-turbolinks": "false", class: "#{controller_name == "welcome" ? "page-scroll" : ""} nav-link px-0 px-sm-2 p-md-3" do
           = "Hire me"
 
+      - if controller_name != "welcome"
+        %li.nav-item.text-center.text-truncate.ml-auto
+          = link_to root_path, "data-turbolinks": "false", class: "#{controller_name == "welcome" ? "page-scroll" : ""} nav-link px-0 px-sm-2 p-md-3" do
+            = "Luciana Damiao"
         

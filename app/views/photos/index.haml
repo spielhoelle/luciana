@@ -1,7 +1,10 @@
-.container.my-3.text-center
+.container-fluid.my-3
   %h2 My Work
 
   = render "photos/meta"
-.card-columns
+.card-columns.container-fluid
   -@photos.each do |photo|
     = render "photos/card", photo: photo
+    -#.row
+      -#- photo.children.each do |cphoto|
+        -#= render "photos/card", photo: cphoto

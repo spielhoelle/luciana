@@ -12,14 +12,31 @@
         - if @photo.caption.present?
           %p.p-0.card-title= @photo.caption.html_safe
 
-  - if @photo.children
+    - if @photo.parent.present?
+      %h2 Belongs to ...
+      = link_to photo_path(@photo.parent), class:"position-relative d-block" do
+        = image_set_tag @photo.parent.image(:thumbnail), {  @photo.parent.image(:thumbnail) => '640w',  @photo.parent.image(:original) => '1024w' }, sizes: '100vw', class: 'w-100 object-fit_cover'
+        %small.my-3.position-absolute.right.top.text-white
+          = @photo.parent.title
+      - if @photo.parent.children.any?
+        %h2.my-5 More from this ...
+        .row
+          - @photo.parent.children.each do |child|
+            .col
+              = link_to photo_path(child), class:"position-relative d-block" do
+                = image_set_tag child.image(:thumbnail), {  child.image(:thumbnail) => '640w',  child.image(:original) => '1024w' }, sizes: '100vw', class: 'w-100 object-fit_cover'
+                %small.my-3.position-absolute.right.top.text-white
+                  = child.title
+
+  - if @photo.children.any?
+    %h2 More from this ...
     .row
       - @photo.children.each do |child|
-        .col-md-3.col-sm-4.col-6
-          = link_to child.title, photo_path(child)
-          = link_to photo_path(child) do
+        .col
+          = link_to photo_path(child), class:"position-relative d-block" do
             = image_set_tag child.image(:thumbnail), {  child.image(:thumbnail) => '640w',  child.image(:original) => '1024w' }, sizes: '100vw', class: 'w-100 object-fit_cover'
-
+            %small.my-3.position-absolute.right.top.text-white
+              = child.title
 
   -if user_signed_in?
   

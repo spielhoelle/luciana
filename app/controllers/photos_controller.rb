@@ -14,7 +14,7 @@ class PhotosController < ApplicationController
       @photos = @photos.present? ? @photos.merge(photos) : photos
     end
     if !entry_params[:tag] && !entry_params[:cat]
-      @photos = Photo.where.not(title: "avatar").order(order: :asc)
+      @photos = Photo.where.not(title: "avatar").where("parent_id IS NULL").order(order: :asc)
     end
   end
   def show

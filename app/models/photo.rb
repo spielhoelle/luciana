@@ -10,8 +10,8 @@ class Photo < ApplicationRecord
   has_attached_file :image,
                     default_url: 'header.jpg',
                     styles: {
-                      thumbnail: '400x300^',
-                      original: '1060x759^'
+                      thumbnail: '600x460^',
+                      original: '1900x1400^'
                     },
                     convert_options: {
                       original: '-quality 75 -strip'
