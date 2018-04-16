@@ -9,15 +9,15 @@
           -#… our next project!
       .col-md-8.col-lg-4.offset-lg-4.offset-md-2
 
-        
+
         = form_for @contact, method: 'create', remote: true, :html => {:class => ""} do |f|
           .row
             .col-md-12
               .mb-5.form-group
-                = f.text_field :email, placeholder: "E-Mail", required: true, class: "text-white bg-inverse no-border form-control-lg w-100"
+                = f.text_field :email, placeholder: "E-Mail", required: true, class: " no-border form-control-lg w-100"
             .col-md-12.mb-5
               .form-group
-                = f.text_area :message, placeholder: "Message", :as => :text, required: true, class: "text-white bg-inverse no-border form-control-lg w-100", rows: "5"
+                = f.text_area :message, placeholder: "Message", :as => :text, required: true, class: " no-border form-control-lg w-100", rows: "5"
               .hidden
                 = f.text_field :nickname, placeholder: "nickname", :hint => 'Leave this field blank!', hidden: "hidden"
             .col-md-12

@@ -2,7 +2,10 @@ module Admin
   class TagsController < Admin::ApplicationController
 
     def index
-      @tags = Tag.all
+      @tags = Tag.left_joins(:photos)
+        .group(:id)
+        .order('COUNT(photos.id) DESC')
+        .limit(10)
     end
 
     def edit
@@ -45,7 +48,7 @@ module Admin
     end
 
     private
-    
+
     def tag_params
       params.require(:tag).permit(:title)
     end
