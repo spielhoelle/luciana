@@ -2,7 +2,10 @@ module Admin
   class CategoriesController < Admin::ApplicationController
 
     def index
-      @categories = Category.all
+      @categories = Category.left_joins(:photos)
+        .group(:id)
+        .order('COUNT(photos.id) DESC')
+        .limit(10)
     end
 
     def edit

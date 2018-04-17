@@ -53,7 +53,7 @@
 
 
         %td.text-right.text-nowrap.d-flex.flex-column
-          - if photo.parent_id?
+          - if photo.parent.present?
             -#= link_to edit_admin_photo_path(photo.parent), class: "" do
               -#= "##{ photo.parent.id }"
               -#= photo.parent.title
