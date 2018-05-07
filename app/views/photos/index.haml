@@ -2,7 +2,7 @@
   %h2 My Work
 
   = render "photos/meta"
-.card-columns.container-fluid
+.card-columns.container-fluid.position--relative.z-index-0
   -@photos.each do |photo|
     = render "photos/card", photo: photo
     -#.row

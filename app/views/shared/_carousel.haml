@@ -2,7 +2,7 @@
   - if @slides.length > 1
     %ol.carousel-indicators.justify-content-end
       - @slides.each_with_index do |slide, index|
-        %li{class: index == 0 ? "active" : "", "data-slide-to" => "1", "data-target" => "#carouselExampleIndicators"}
+        %li{class: index == 0 ? "active" : "", "data-slide-to" => index, "data-target" => "#carouselExampleIndicators"}
   .carousel-inner.h-100
     - @slides.each_with_index do |slide, index|
       .carousel-item.h-100{class: index == 0 ? "active" : ""}
@@ -22,4 +22,3 @@
       %a.carousel-control-next{"data-slide" => "next", :href => "#carouselExampleIndicators", :role => "button"}
 
         .angle.left.text-white
-
