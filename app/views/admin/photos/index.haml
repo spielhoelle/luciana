@@ -18,7 +18,7 @@
     -@photos.each_with_index do |photo, index|
       %tr{id: "photo_#{photo.id}", class: ""}
         %td
-          = photo.id 
+          = photo.id
         %td.p-0.w-3
           .fixed-ratio
             = link_to edit_admin_photo_path(photo), class: "fixed-ratio__inner" do

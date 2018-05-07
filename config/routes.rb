@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
-    resources :photos, only: [:index, :show]
+  resources :photos, only: [:index, :show]
 
   namespace :admin do
     resources :contacts do
@@ -11,7 +11,7 @@ Rails.application.routes.draw do
         get 'remove_all'
       end
     end
-    
+
 
     resources :photos do
       get :autocomplete_category_title, on: :collection
@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     resources :categories
     root to: "photos#index"
   end
+  match '/hidden', to: 'photos#hidden', via: 'get', :as => 'hidden'
   match '/contacts/new', to: 'contacts#create', via: 'post'
   resources 'contacts', only: [:new, :create]
 

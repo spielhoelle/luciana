@@ -14,6 +14,9 @@
   .form-group
     %label{:for => "title"} Title
     = f.text_field :title, placeholder: "Title", class: "form-control"
+  .form-group
+    %label{:for => "hidden"} Hidden
+    = f.check_box :hidden
 
 
   .form-group.text-right

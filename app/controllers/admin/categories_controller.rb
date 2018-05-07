@@ -48,9 +48,9 @@ module Admin
     end
 
     private
-    
+
     def category_params
-      params.require(:category).permit(:title)
+      params.require(:category).permit(:title, :hidden)
     end
   end
 end

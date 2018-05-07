@@ -6,7 +6,8 @@
     %tr
       %th Title
       %th Photos
-      %th{colspan: 2}
+      %th Hidden?
+      %th.text-right{colspan: 2}
         = "Actions"
 
   %tbody
@@ -17,6 +18,9 @@
 
         %td
           = category.photos.count
+        %td
+          - if category.hidden?
+            yes
 
 
         %td.text-right.text-nowrap
