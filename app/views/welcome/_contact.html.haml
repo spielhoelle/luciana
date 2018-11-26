@@ -21,11 +21,8 @@
               .hidden
                 = f.text_field :nickname, placeholder: "nickname", :hint => 'Leave this field blank!', hidden: "hidden"
             .col-md-12
-              = f.submit "Send", :class=> "cursor-pointer btn btn-primary btn-lg", data: { disable_with: "Sending..." }
+              = f.submit "Send", :class=> "cursor-pointer btn btn-primary", data: { disable_with: "Sending..." }
 
-
-
-
-  %button#show_map.btn.btn-secondary.z-index-foreground-3.cursor-pointer{:href => "#", :title => "Show map!"} Show map
+  %button#show_map.btn.btn-primary.z-index-foreground-3.cursor-pointer{:href => "#", :title => "Show map!"} Show map
   .gmap.half-transparent
-    #map_canvas{'data-description' => "Friedrichshain Berlin, Germany	"}
+    #map_canvas
