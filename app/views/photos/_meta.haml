@@ -2,7 +2,7 @@
   .my-5
     - if @categories.any?
       %ul.list-inline.mb-0.mr-3
-        %span.mr-3= fa_icon "bars"
+        %span.cat-icon.mr-3= fa_icon "bars"
         - if action_name === "hidden"
           = link_to "All", hidden_path, class: current_page?(photos_path) && !params[:cat] && !params[:tag] ? "text-uppercase text-muted" : "text-lowercase"
         - else
@@ -19,7 +19,7 @@
                 = cat.title
     - if @tags.any?
       %ul.list-inline.mr-3
-        %span.mr-3= fa_icon "tags"
+        %span.cat-icon.mr-3= fa_icon "tags"
         - @tags.each_with_index do |tag, index|
           %li.list-inline-item
             - if action_name === "hidden"
