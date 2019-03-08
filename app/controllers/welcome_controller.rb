@@ -6,9 +6,9 @@ class WelcomeController < ApplicationController
     @page_title = "Luciana Damiao"
     @contact = Contact.new
     if !primary_domain
-      @photos = Photo.joins(:categories).where( categories: { hidden: true }).where.not(:title => "avatar").where("parent_id IS NULL").order(order: :asc)
-    else 
-      @photos = Photo.where.not(:title => "avatar").where("parent_id IS NULL").order(order: :asc)
+      @photos = Photo.joins(:categories).where( categories: { hidden: 1 }).where.not(:title => "avatar").where("parent_id IS NULL").order(order: :asc)
+    else
+      @photos = Photo.joins(:categories).where( categories: { hidden: [nil, "0"] }).where.not(:title => "avatar").where("parent_id IS NULL").order(order: :asc)
     end
     # @photos = Photo.where.not(title: "avatar").where("parent_id IS NULL").order(order: :asc)
     slides = Photo.where("in_slider IS NOT NULL").order(in_slider: :asc)

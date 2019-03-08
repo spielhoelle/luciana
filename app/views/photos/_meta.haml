@@ -22,9 +22,9 @@
         %span.mr-3= fa_icon "tags"
         - @tags.each_with_index do |tag, index|
           %li.list-inline-item
-          - if action_name === "hidden"
-            = link_to hidden_path("tag": tag.title, :cat => params[:cat]) ,class: params[:tag] == tag.title ? "text-uppercase text-muted" : "text-lowercase" do
-              = tag.title
-          - else
-            = link_to photos_path("tag": tag.title, :cat => params[:cat]) ,class: params[:tag] == tag.title ? "text-uppercase text-muted" : "text-lowercase" do
-              = tag.title
+            - if action_name === "hidden"
+              = link_to hidden_path("tag": tag.title, :cat => params[:cat]) ,class: params[:tag] == tag.title ? "text-uppercase text-muted" : "text-lowercase" do
+                = tag.title
+            - else
+              = link_to photos_path("tag": tag.title, :cat => params[:cat]) ,class: params[:tag] == tag.title ? "text-uppercase text-muted" : "text-lowercase" do
+                = tag.title

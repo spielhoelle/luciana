@@ -47,3 +47,11 @@
           = link_to admin_photo_path(photo), :method=> :delete, class: "btn btn-outline-danger btn-sm", data: {confirm: "You sure to delete this photo?"} do
             %span.glyphicon.glyphicon-remove{"aria-hidden" => "true"}
             = fa_icon "remove"
+        %td.text-right.text-nowrap.d-flex.flex-column
+          - if photo.parent.present?
+            -#= link_to edit_admin_photo_path(photo.parent), class: "" do
+              -#= "##{ photo.parent.id }"
+              -#= photo.parent.title
+            .fixed-ratio
+              = link_to edit_admin_photo_path(photo.parent), class: "fixed-ratio__inner" do
+                = image_tag photo.parent.image(:thumbnail), class: 'w-100'
