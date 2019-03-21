@@ -2,11 +2,7 @@
   .container.mb-5#mapoverlay
     .row
       .col-12
-        %h2.mb-5.typed-blink Hire me
-        -#%p
-          -#Don’t hesitate to bother me with your …
-          -#%br
-          -#… our next project!
+        %h2.my-5.typed-blink Hire me
       .col-md-8.col-lg-4.offset-lg-4.offset-md-2
 
 
@@ -23,6 +19,8 @@
             .col-md-12
               = f.submit "Send", :class=> "cursor-pointer btn btn-primary", data: { disable_with: "Sending..." }
 
+  .text-center.mb-5
+    =link_to "Send email", 'mailto:luludamiao@gmail.com'
   %button#show_map.btn.btn-primary.z-index-foreground-3.cursor-pointer{:href => "#", :title => "Show map!"} Show map
   .gmap.half-transparent
     #map_canvas

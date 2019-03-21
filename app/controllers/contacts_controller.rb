@@ -6,9 +6,9 @@ class ContactsController < ApplicationController
   end
 
   def create
-    @mail = Mailer.new(allowed_params)
-    @mail.request = request
-    if @mail.deliver || Rails.env.development?
+    mail = Mailer.new(allowed_params)
+    mail.request = request
+    if mail.deliver
       flash.now[:notice] = 'Thank you for your message!'
       @contact = Contact.new(allowed_params)
       @contact.save
@@ -18,7 +18,6 @@ class ContactsController < ApplicationController
       end
     else
       flash.now[:error] = 'Cannot send message.'
-      render :new
     end
   end
 

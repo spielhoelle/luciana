@@ -7,9 +7,9 @@
 
 .container#photo_content
   .card
-    .card-block.background-color-black-transparent.d-flex.flex-column.p-0{:class => ""}
-      .d-flex.flex-column.flex-grow.justify-content-center.p-4
-        - if @photo.caption.present?
+    - if @photo.caption.present?
+      .card-block.background-color-black-transparent.d-flex.flex-column.p-0{:class => ""}
+        .d-flex.flex-column.flex-grow.justify-content-center.p-4
           %p.p-0.card-title= @photo.caption.html_safe
 
     - if @photo.parent.present?
@@ -39,8 +39,8 @@
               = child.title
 
   -if user_signed_in?
-  
     .pt-5
       = link_to edit_admin_photo_path(@photo), class: "btn btn-primary", title: "Edit" do
         = fa_icon "edit"
         Edit
+= render "shared/contact"
