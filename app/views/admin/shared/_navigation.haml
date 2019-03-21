@@ -17,6 +17,8 @@
     
       = link_to admin_contacts_path, class: "#{controller_name == "contacts" ? "active" : ""} nav-item nav-link px-0" do
         Contacts
+        - if @contacts.any?
+          %span.badge.badge-danger= @contacts.count
     
       = link_to destroy_user_session_path, :method => :delete, class: 'nav-item nav-link px-0', title: "logout" do
         Logout

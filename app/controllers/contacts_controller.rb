@@ -1,7 +1,8 @@
 class ContactsController < ApplicationController
   def new
+  puts request.inspect
     @contact = Contact.new
-    @page_title = "Contact"
+    @page_title = "#{@page_title} | Contact"
   end
 
   def create

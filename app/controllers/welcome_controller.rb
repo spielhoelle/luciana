@@ -3,7 +3,6 @@ class WelcomeController < ApplicationController
   def index
     super
     @avatar = Photo.find_by(title: "avatar")
-    @page_title = "Luciana Damiao"
     @contact = Contact.new
     if !primary_domain
       photos = Photo.joins(:categories).where( categories: { hidden: 1 }).where.not(:title => "avatar").where("parent_id IS NULL")

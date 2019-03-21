@@ -1,27 +1,28 @@
 %footer#footer.py-3.container-fluid
 
-  .row
-    .col-sm-12.text-right.pt-3
-      .mx-4
-        %h3.text-uppercase Luciana Damiao
-        = link_to "https://www.instagram.com/lu_damiao", title: "Instagram", class: "no-decoration", target: "_blank" do
-          %span.fa-stack
-            %i.fa.fa-circle.fa-stack-2x
-            %i.fa.fa-instagram.text-white.fa-inverse.fa-stack-1x.no-decoration
-        = link_to "http://lucianadamiao.tumblr.com", title: "Tumblr", class: "no-decoration", target: "_blank" do
-          %span.fa-stack
-            %i.fa.fa-circle.fa-stack-2x
-            %i.fa.fa-tumblr.text-white.fa-inverse.fa-stack-1x.no-decoration
-        = link_to "https://vimeo.com/user8173415", title: "Vimeo", class: "no-decoration", target: "_blank" do
-          %span.fa-stack
-            %i.fa.fa-circle.fa-stack-2x
-            %i.fa.fa-vimeo.text-white.fa-inverse.fa-stack-1x.no-decoration
-        = link_to "mailto:luludamiao@gmail.com", title: "E-Mail", class: "no-decoration", target: "_blank" do
-          %span.fa-stack
-            %i.fa.fa-circle.fa-stack-2x
-            %i.fa.fa-envelope.text-white.fa-inverse.fa-stack-1x.no-decoration
+  - if @primary_domain
+    .row
+      .col-sm-12.text-right.pt-3
+        .mx-4
+          %h3.text-uppercase Luciana Damiao
+          = link_to "https://www.instagram.com/lu_damiao", title: "Instagram", class: "no-decoration", target: "_blank" do
+            %span.fa-stack
+              %i.fa.fa-circle.fa-stack-2x
+              %i.fa.fa-instagram.text-white.fa-inverse.fa-stack-1x.no-decoration
+          = link_to "http://lucianadamiao.tumblr.com", title: "Tumblr", class: "no-decoration", target: "_blank" do
+            %span.fa-stack
+              %i.fa.fa-circle.fa-stack-2x
+              %i.fa.fa-tumblr.text-white.fa-inverse.fa-stack-1x.no-decoration
+          = link_to "https://vimeo.com/user8173415", title: "Vimeo", class: "no-decoration", target: "_blank" do
+            %span.fa-stack
+              %i.fa.fa-circle.fa-stack-2x
+              %i.fa.fa-vimeo.text-white.fa-inverse.fa-stack-1x.no-decoration
+          = link_to "mailto:luludamiao@gmail.com", title: "E-Mail", class: "no-decoration", target: "_blank" do
+            %span.fa-stack
+              %i.fa.fa-circle.fa-stack-2x
+              %i.fa.fa-envelope.text-white.fa-inverse.fa-stack-1x.no-decoration
 
-  .tommy.mt-3.mb-4.text-muted.small.text-right.mx-4
+  .tommy.text-muted.small.text-right.mx-4
     © 2017 with
     %i.fa.fa-heart
     by
