@@ -15,5 +15,4 @@
       - if controller_name != "welcome"
         %li.nav-item.text-center.text-truncate.ml-auto
           = link_to root_path, "data-turbolinks": "false", class: "#{controller_name == "welcome" ? "page-scroll" : ""} nav-link px-0 px-sm-2 p-md-3" do
-            = "Luciana Damiao"
-        
+            = @page_title
