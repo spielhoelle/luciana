@@ -1,7 +1,6 @@
 class PhotosController < ApplicationController
 
   def index
-    super
     @photos = {}
     if entry_params[:cat]
       cat = Category.find_by('title': entry_params[:cat])
