@@ -62,7 +62,7 @@ gem "paperclip", "~> 5.2.0"
 gem 'devise'
 gem 'mail_form'
 
-gem 'bootstrap', '~> 4.0.0.beta2.1'
+gem 'bootstrap', '~> 4.1.3'
 gem "font-awesome-rails"
 gem 'inline_svg'
 gem 'friendly_id', '~> 5.1.0'
