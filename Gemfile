@@ -58,6 +58,7 @@ gem 'mysql2'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'autoprefixer-rails'
 gem "haml-rails"
+gem "haml", "~> 5.0.4"
 gem "paperclip", "~> 5.2.0"
 gem 'devise'
 gem 'mail_form'

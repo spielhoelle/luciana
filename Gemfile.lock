@@ -98,7 +98,7 @@ GEM
       activerecord (>= 4.0.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
-    haml (5.0.3)
+    haml (5.0.4)
       temple (>= 0.8.0)
       tilt
     haml-rails (1.0.0)
@@ -268,10 +268,10 @@ GEM
     sshkit (1.13.1)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
-    temple (0.8.0)
+    temple (0.8.2)
     thor (1.0.1)
     thread_safe (0.3.6)
-    tilt (2.0.8)
+    tilt (2.0.10)
     turbolinks (5.0.1)
       turbolinks-source (~> 5)
     turbolinks-source (5.0.3)
@@ -307,6 +307,7 @@ DEPENDENCIES
   devise
   font-awesome-rails
   friendly_id (~> 5.1.0)
+  haml (~> 5.0.4)
   haml-rails
   inline_svg
   jquery-rails
@@ -341,4 +342,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.14.5
+   1.17.2
