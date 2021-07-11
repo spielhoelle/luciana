@@ -1,16 +1,16 @@
 %nav.navbar.navbar-inverse.bg-white.p-0#navi{class: controller_name != "photos" ? "sticky" : ""}
   .p-0.w-100-md.container-fluid
     %ul.nav.navbar-nav.w-100.flex-row
-      - if @primary_domain
-        %li.nav-item.text-center.text-truncate
-          = link_to (controller_name != "welcome" ? "#{root_path}#about" : "#about"), "data-turbolinks": "false", class: "#{controller_name == "welcome" ? "page-scroll" : ""} nav-link px-0 px-sm-2 p-md-3" do
-            = "About"
       %li.nav-item.text-center.text-truncate
-        = link_to (controller_name != "welcome" ? "#{root_path}#photos" : "#photos"), "data-turbolinks": "false", class: "#{controller_name == "welcome" ? "page-scroll" : ""} nav-link px-0 px-sm-2 p-md-3" do
+        = link_to (action_name != "about" ? "#{root_path}#photos" : root_path), "data-turbolinks": "false", class: "#{controller_name == "welcome" ? "page-scroll" : ""} nav-link px-0 px-sm-2 p-md-3" do
           = "Experience"
       %li.nav-item.text-center.text-truncate
-        = link_to (controller_name != "welcome" ? "#{root_path}#contact" : "#contact"), "data-turbolinks": "false", class: "#{controller_name == "welcome" ? "page-scroll" : ""} nav-link px-0 px-sm-2 p-md-3" do
+        = link_to ("#{root_path}#contact"), "data-turbolinks": "false", class: "#{controller_name == "welcome" ? "page-scroll" : ""} nav-link px-0 px-sm-2 p-md-3" do
           = "Hire me"
+      - if !@avatar.nil? && @avatar.caption != ""
+        %li.nav-item.text-center.text-truncate
+          = link_to ("/about"), "data-turbolinks": "false", class: "nav-link px-0 px-sm-2 p-md-3" do
+            = "About"
 
       - if controller_name != "welcome"
         %li.nav-item.text-center.text-truncate.ml-auto

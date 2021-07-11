@@ -25,5 +25,6 @@ Rails.application.routes.draw do
   match '/hidden', to: 'photos#hidden', via: 'get', :as => 'hidden'
   match '/contacts/new', to: 'contacts#create', via: 'post'
   resources 'contacts', only: [:new, :create]
+  get '/about', to: 'welcome#about'
 
 end

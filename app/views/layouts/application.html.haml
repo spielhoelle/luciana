@@ -34,7 +34,7 @@
 
 
   %body{class: class_for_controller, "data-spy" => "scroll", "data-target" => "#collapsingNavbarv"}
-    - if controller.controller_name == "welcome" && @slides.any?
+    - if controller.controller_name == "welcome" && !@slides.nil?
       .parallax.overflow-hidden.z-index-0
         %h1.position-fixed.card-title.top.left.color-white.mt-5.p-5.z-index-foreground-3= @page_title
         = render "shared/carousel"
