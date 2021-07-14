@@ -52,7 +52,7 @@ group :development do
   gem 'capistrano-passenger', '>= 0.1.1'
 end
 
-gem 'mysql2'
+gem 'mysql2', '~> 0.4.9'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
