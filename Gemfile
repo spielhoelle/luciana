@@ -56,7 +56,6 @@ gem 'mysql2', '~> 0.4.9'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'autoprefixer-rails'
 gem "haml-rails"
 gem "haml", "~> 5.0.4"
 gem "paperclip", "~> 5.2.0"
@@ -73,4 +72,4 @@ gem 'redcarpet'
 gem 'coderay'
 gem 'remotipart', '~> 1.2'
 gem 'metamagic'
-
+gem 'mini_racer'
