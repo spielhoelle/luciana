@@ -3,7 +3,6 @@
 //= require jquery.remotipart
 //= require mdeditor
 //= require jquery-ui/widgets/autocomplete
-//= require bootstrap-sprockets
 //= require autocomplete-rails
 $(function () {
   $('[data-toggle="tooltip"]').tooltip()
