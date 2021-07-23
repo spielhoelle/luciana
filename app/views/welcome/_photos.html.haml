@@ -1,13 +1,12 @@
 %section#photos
-  .container-fluid
-    %h2 Experience
-    = render "photos/meta"
-    .card-columns.container-fluid.position--relative.z-index-0
-      -@photos.each do |photo|
-        = render "photos/card", photo: photo
+  %h2 Experience
+  = render "photos/meta"
+  .card-columns.position--relative.z-index-0
+    -@photos.each do |photo|
+      = render "photos/card", photo: photo
 
 
 
-    .text-center.mt-5
-      = link_to photos_path, class: "btn btn-lg text-dark btn-link" do
-        = "See more"
+  .text-center.mt-5
+    = link_to photos_path, class: "btn btn-lg text-dark btn-link" do
+      = "See more"

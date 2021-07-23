@@ -1,8 +1,8 @@
-.container-fluid.my-3
+.container.my-3
   %h2 Portfolio
 
   = render "photos/meta"
-.card-columns.container-fluid.position--relative.z-index-0
+.card-columns.container.position--relative.z-index-0
   - if @photos.any?
     -@photos.each do |photo|
       = render "photos/card", photo: photo

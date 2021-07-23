@@ -1,8 +1,8 @@
-.position--relative.overflow-hidden
+.position--relative.overflow-hidden.container
   = render "shared/scroll_down"
   = image_set_tag @photo.image(:thumbnail), {  @photo.image(:thumbnail) => '640w',  @photo.image(:original) => '1024w' }, sizes: '100vw', class: 'w-100 h-100 object-fit_cover'
-  %h3.position-fixed.card-title.top.left.color-white.mt-5.p-5= @photo.title.capitalize
-  .my-3.position-absolute.right.top.text-white
+  %h3.mx-3.position-absolute.card-title.top.left.color-white.mt-5.p-5= @photo.title.capitalize
+  .my-3.position-absolute.right.top.text-white.px-3
     = render "photos/single_meta", photo: @photo, classes: "text-white"
 
 .container#photo_content
@@ -29,13 +29,13 @@
                   = child.title
 
   - if @photo.children.any?
-    %h2 More from this ...
+    %h2.my-5 More from this ...
     .row
       - @photo.children.each do |child|
         .col
           = link_to photo_path(child), class:"position-relative d-block" do
             = image_set_tag child.image(:thumbnail), {  child.image(:thumbnail) => '640w',  child.image(:original) => '1024w' }, sizes: '100vw', class: 'w-100 object-fit_cover'
-            %small.my-3.position-absolute.right.top.text-white
+            %small.m-3.position-absolute.right.top.text-white
               = child.title
 
   -if user_signed_in?
