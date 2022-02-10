@@ -17,7 +17,7 @@
     "gulp": "^3.9.1",
     "gulp-svgmin": "^1.2.2",
     "gulp-svgstore": "^6.0.0",
-    "node-sass": "^4.5.0",
+    "node-sass": "^7.0.0",
     "resolve-url-loader": "^2.0.2",
     "sass-loader": "^6.0.3",
     "style-loader": "^0.14.1",
